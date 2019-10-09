@@ -1,0 +1,12 @@
+Rails.env
+quit
+Rails.env
+quit
+Rails.env
+show-models
+show-model
+show-routes
+routes
+show-route
+show-routes
+quit

@@ -16,6 +16,13 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
       - db
+
+  chrome:
+    image: selenium/standalone-chrome-debug:latest
+    container_name: 4q4t_chrome
+    ports:
+      - 4444:4444
+      - 5900:5900
