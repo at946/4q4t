@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>4Q4T</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="header">
+      <div class="header-container">
+        <span class="header-logo">4Q4T</span>
+      </div>
+    </header>
+
+    <div class="mb-4"></div>
     <%= yield %>
+
+    <footer class="footer">
+      (c) at.
+    </footer>
   </body>
 </html>

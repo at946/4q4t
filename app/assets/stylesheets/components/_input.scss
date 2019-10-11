@@ -1,0 +1,21 @@
+input, button, textarea, select {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input {
+  width: 100%;
+  font-size: 1rem;
+  @extend .font-secondary;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  // line-height: 2;
+  @extend .p-1;
+}

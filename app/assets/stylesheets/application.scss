@@ -1,0 +1,39 @@
+// Reset CSS
+@import "reset";
+
+@import "components/color";
+@import "components/font";
+@import "components/mp";
+@import "components/button";
+@import "components/header";
+@import "components/footer";
+@import "components/input";
+
+
+@import "common";
+
+html {
+  @extend .font-secondary;
+  @extend .text-black;
+  font-size: 16px;
+}
+
+body {
+  min-height: calc(100vh - 4rem);
+  position: relative;
+}
+
+.container {
+  @extend .mx-auto;
+  max-width: 1280px;
+  width: 80%;
+  text-align: center;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+  line-height: 1.8;
+}

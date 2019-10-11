@@ -1,0 +1,19 @@
+@for $i from 0 through 5 {
+  .mt-#{$i} { margin-top: #{$i}rem !important; }
+  .mb-#{$i} { margin-bottom: #{$i}rem !important; }
+  .ml-#{$i} { margin-left: #{$i}rem !important; }
+  .mr-#{$i} { margin-right: #{$i}rem !important; }
+  .mx-#{$i} { @extend .ml-#{$i}; @extend .mr-#{$i}; }
+  .my-#{$i} { @extend .mt-#{$i}; @extend .mb-#{$i}; }
+  .m-#{$i}  { @extend .mx-#{$i}; @extend .my-#{$i}; }
+
+  .pt-#{$i} { padding-top: #{$i}rem !important; }
+  .pb-#{$i} { padding-bottom: #{$i}rem !important; }
+  .pl-#{$i} { padding-left: #{$i}rem !important; }
+  .pr-#{$i} { padding-right: #{$i}rem !important; }
+  .px-#{$i} { @extend .pl-#{$i}; @extend .pr-#{$i}; }
+  .py-#{$i} { @extend .pt-#{$i}; @extend .pb-#{$i}; }
+  .p-#{$i}  { @extend .px-#{$i}; @extend .py-#{$i}; }
+}
+
+.mx-auto { margin-left: auto; margin-right: auto; }

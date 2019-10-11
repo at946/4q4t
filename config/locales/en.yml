@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    models:
+      team: Team
+    attributes:
+      team:
+        name: Team name

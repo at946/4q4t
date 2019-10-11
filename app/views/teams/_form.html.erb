@@ -1,0 +1,18 @@
+<%= form_with(model: team, local: true) do |form| %>
+  <% if team.errors.any? %>
+    <div class="pb-2">
+      <ul>
+        <% team.errors.full_messages.each do |message| %>
+          <li class="text-error"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.text_field :name, class: "input", placeholder: "Team name", autofocus: true %>
+  </div>
+
+  <button id="team_create_button" class="button">Create</button>
+
+<% end %>
