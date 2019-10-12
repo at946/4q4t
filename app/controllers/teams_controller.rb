@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    render :not_found if @team.blank?
   end
 
   # GET /teams/new
@@ -61,6 +62,9 @@ class TeamsController < ApplicationController
   #     format.json { head :no_content }
   #   end
   # end
+
+  def not_found
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
