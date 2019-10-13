@@ -15,8 +15,13 @@
   </div>
 
   <% @members.each do |member| %>
-    <div class="card card-primary mb-2">
-      <h3 class="mb-1"><%= member.name %></h3>
+    <div class="card card-primary mb-2 member-card">
+      <div class="mb-1 card-header">
+        <h3 style="margin-right: auto;"><%= member.name %></h3>
+        <%= link_to edit_member_path member do %>
+          <i class="edit-icon material-icons">edit</i>
+        <% end %>
+      </div>
       <%= render 'member_card', answers: member.ans_q1 %>
       <%= render 'member_card', answers: member.ans_q2 %>
       <%= render 'member_card', answers: member.ans_q3 %>

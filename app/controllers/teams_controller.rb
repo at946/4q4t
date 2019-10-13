@@ -11,7 +11,6 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
-    render :not_found if @team.blank?
     @members = @team.members
   end
 
@@ -70,7 +69,12 @@ class TeamsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_team
-      @team = Team.find_by(uid: params[:uid])
+      begin
+        @team = Team.find(params[:uid])
+      rescue => error
+        flash[:error] = "Team is not found."
+        render template: 'common/error'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

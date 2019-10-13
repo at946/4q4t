@@ -12,7 +12,7 @@ $type-color: (
 );
 
 @each $type, $color in $type-color {
-  .bg-#{$type} { background-color: $color; }
-  .text-#{$type} { color: $color; }
-  .border-#{$type} { border-color: $color; }
+  .bg-#{$type} { background-color: $color!important; }
+  .text-#{$type} { color: $color!important; }
+  .border-#{$type} { border-color: $color!important; }
 }

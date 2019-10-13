@@ -1,4 +1,4 @@
-<%= form_with(model: member, url: create_member_path(team: member.team_id), local: true) do |form| %>
+<%= form_with(model: member, url: url, local: true) do |form| %>
   <% if member.errors.any? %>
     <div class="pb-2">
       <ul>
@@ -61,5 +61,10 @@
     <%= form.hidden_field :team_id %>
   </div>
 
-  <button type="submit" id="create_member_button" class="button">Answer</button>
+  <% if create %>
+    <button type="submit" id="create_member_button" class="button">Answer</button>
+  <% else %>
+    <button type="submit" id="update_member_button" class="button mb-2">Update</button><br>
+    <%= link_to "Delete", destroy_member_path(member), method: :delete, id: "delete_member_button", class: "text-black", data: { confirm: "メンバーの削除は元に戻すことができません。本当に削除しますか？" } %>
+  <% end %>
 <% end %>

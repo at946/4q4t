@@ -17,7 +17,7 @@ feature "02_team_leader_invite_team_members", type: :system, js: true do
   scenario "User is redirected team not found page when user tries to access show team page of not existing team directly." do
     visit team_path "1"
     expect(current_path).to eq team_path "1"
-    expect(page).to have_text "The team is not found."
+    expect(page).to have_text "Team is not found."
   end
 
 end

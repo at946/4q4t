@@ -5,6 +5,11 @@
   text-align: left;
   @extend .p-1;
   @extend .shadow;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .card-primary {

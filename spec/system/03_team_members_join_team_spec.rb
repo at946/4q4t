@@ -198,7 +198,7 @@ feature "03_team_members_join_team", type: :system, js: true do
     fill_in :member_ans_q4_3, with: @in_answers4[2]
     click_on :create_member_button
 
-    expect(current_path).to eq team_path(@team)
+    expect(current_path).to eq team_path @team
     expect(Member.all.count).to eq 1
     expect(@team.members.count).to eq 1
     member = Member.last
@@ -604,7 +604,7 @@ feature "03_team_members_join_team", type: :system, js: true do
 
   scenario "User is redirected to team not found page when user tries to access create member page for not existing team." do
     visit new_member_path(team: "dummy_team")
-    expect(page).to have_text "The team is not found."
+    expect(page).to have_text "Team is not found."
   end
 
 end

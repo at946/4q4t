@@ -153,3 +153,11 @@ Team.find("a")
 Team.find("a")!
 Team.find!("a")
 Team.find_by(uid: "a")
+Team.all
+Member.all
+a = Member.first
+a
+a.reload
+a
+a.reload
+a.reload!

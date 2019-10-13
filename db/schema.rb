@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_113215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "members", force: :cascade do |t|
+  create_table "members", primary_key: "uid", id: :string, limit: 20, force: :cascade do |t|
     t.string "team_id", limit: 20, null: false
     t.string "name", null: false
     t.string "ans_q1", array: true
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_113215) do
     t.index ["ans_q3"], name: "index_members_on_ans_q3", using: :gin
     t.index ["ans_q4"], name: "index_members_on_ans_q4", using: :gin
     t.index ["team_id"], name: "index_members_on_team_id"
+    t.index ["uid"], name: "index_members_on_uid", unique: true
   end
 
   create_table "teams", primary_key: "uid", id: :string, limit: 20, force: :cascade do |t|

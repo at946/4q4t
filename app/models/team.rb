@@ -1,6 +1,6 @@
 class Team < ApplicationRecord
 
-  # Primary key
+  # Default order
   default_scope -> { order(:created_at) }
 
   # Accosication

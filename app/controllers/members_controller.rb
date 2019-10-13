@@ -14,14 +14,20 @@ class MembersController < ApplicationController
 
   # GET /members/new
   def new
-    render template: "teams/not_found" if Team.find_by(uid: params[:team]).blank?
+    begin
+      team = Team.find(params[:team])
+    rescue => exception
+      flash[:error] = "Team is not found."
+      render template: "common/error"
+    end
     @member = Member.new
-    @member.team_id = params[:team]
+    # @member.team_id = params[:team]
+    @member.team = team
   end
 
   # GET /members/1/edit
-  # def edit
-  # end
+  def edit
+  end
 
   # POST /memebrs
   # POST /members.json
@@ -41,32 +47,37 @@ class MembersController < ApplicationController
 
   # PATCH/PUT /members/1
   # PATCH/PUT /members/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @member.update(member_params)
-  #       format.html { redirect_to @member, notice: 'Member was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @member }
-  #     else
-  #       format.html { render :edit }
-  #       format.json { render json: @member.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @member.update(member_params)
+        format.html { redirect_to team_path(@member.team) }
+        # format.json { render :show, status: :ok, location: @member }
+      else
+        format.html { render :edit }
+        # format.json { render json: @member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /members/1
   # DELETE /members/1.json
-  # def destroy
-  #   @member.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @member.destroy
+    respond_to do |format|
+      format.html { redirect_to team_path(@member.team) }
+      # format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
-      @member = Member.find(params[:id])
+      begin
+        @member = Member.find(params[:id])
+      rescue => exception
+        flash[:error] = "Member is not found."
+        render template: 'common/error'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
