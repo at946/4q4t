@@ -21,7 +21,6 @@ class MembersController < ApplicationController
       render template: "common/error"
     end
     @member = Member.new
-    # @member.team_id = params[:team]
     @member.team = team
   end
 
@@ -73,7 +72,7 @@ class MembersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_member
       begin
-        @member = Member.find(params[:id])
+        @member = Member.find(params[:uid])
       rescue => exception
         flash[:error] = "Member is not found."
         render template: 'common/error'

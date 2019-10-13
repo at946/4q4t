@@ -1,9 +1,9 @@
-<%= form_with(model: team, url: create_team_path, local: true) do |form| %>
+<%= form_with(model: team, url: url, local: true) do |form| %>
   <% if team.errors.any? %>
     <div class="pb-2">
       <ul>
         <% team.errors.full_messages.each do |message| %>
-          <li class="text-error"><%= message %></li>
+          <li class="text-error"><%= message %>.</li>
         <% end %>
       </ul>
     </div>
@@ -13,6 +13,10 @@
     <%= form.text_field :name, class: "input", placeholder: Team.human_attribute_name(:name), autofocus: true %>
   </div>
 
-  <button id="team_create_button" class="button">Create</button>
+  <% if new %>
+    <button id="team_create_button" class="button">Create</button>
+  <% else %>
+    <button id="team_update_button" class="button">Update</button>
+  <% end %>
 
 <% end %>

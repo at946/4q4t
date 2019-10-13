@@ -1,5 +1,10 @@
 <div class="container">
-  <h2 class="pt-3 pb-1"><%= @team.name %></h2>
+  <h2 class="pt-3 pb-1">
+    <%= @team.name %>
+    <%= link_to edit_team_path(@team), id: :edit_team_icon do %>
+      <i class="material-icons edit-icon">edit</i>
+    <% end %>
+  </h2>
   <p style="overflow: scroll;" class="text-secondary"><%= request.url %></p>
   <p class="mb-2" style="color: #AAA;"># チームメンバーにURLを共有して招待しましょう！</p>
   <%= link_to "Answer 4 questions", new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-3' %>
