@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @answer.team_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @answer.name %>
+</p>
+
+<p>
+  <strong>Ans q1:</strong>
+  <%= @answer.ans_q1 %>
+</p>
+
+<p>
+  <strong>Ans q2:</strong>
+  <%= @answer.ans_q2 %>
+</p>
+
+<p>
+  <strong>Ans q3:</strong>
+  <%= @answer.ans_q3 %>
+</p>
+
+<p>
+  <strong>Ans q4:</strong>
+  <%= @answer.ans_q4 %>
+</p>
+
+<%= link_to 'Edit', edit_answer_path(@answer) %> |
+<%= link_to 'Back', answers_path %>

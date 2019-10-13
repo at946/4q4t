@@ -1,0 +1,16 @@
+@import 'color';
+@import 'shadow';
+
+.card {
+  text-align: left;
+  @extend .p-1;
+  @extend .shadow;
+}
+
+.card-primary {
+  border-left: solid 1rem $primary-color;
+}
+
+.card-secondary {
+  border-left: solid 1rem $secondary-color;
+}

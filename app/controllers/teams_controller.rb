@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
   # GET /teams/1.json
   def show
     render :not_found if @team.blank?
+    @members = @team.members
   end
 
   # GET /teams/new

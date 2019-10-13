@@ -35,6 +35,13 @@ en:
   activerecord:
     models:
       team: Team
+      member: Member
     attributes:
       team:
         name: Team name
+      member:
+        name: Name
+        ans_q1: Answer for Q1
+        ans_q2: Answer for Q2
+        ans_q3: Answer for Q3
+        ans_q4: Answer for Q4

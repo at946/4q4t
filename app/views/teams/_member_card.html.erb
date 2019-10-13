@@ -1,0 +1,9 @@
+<div class="card card-secondary mb-1">
+  <% if answers.present? %>
+    <% answers.each do |ans| %>
+      <p>・<%= ans %></p>
+    <% end %>
+  <% else %>
+    <p>No answer.</p>
+  <% end %>
+</div>

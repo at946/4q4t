@@ -1,8 +1,13 @@
+$primary-color: #23C69E;
+$secondary-color: #8A8AF8;
+$error-color: #D44444;
+$black: #444444;
+
 $type-color: (
-  'primary': #23C69E,
-  'secondary': #8A8AF8,
-  'error': #D44444,
-  'black': #444444,
+  'primary': $primary-color,
+  'secondary': $secondary-color,
+  'error': $error-color,
+  'black': $black,
   'white': white,
 );
 

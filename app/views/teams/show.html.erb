@@ -1,5 +1,27 @@
 <div class="container">
   <h2 class="pt-3 pb-1"><%= @team.name %></h2>
   <p style="overflow: scroll;" class="text-secondary"><%= request.url %></p>
-  <p style="color: #AAA;"># チームメンバーにURLを共有して招待しましょう！</p>
+  <p class="mb-2" style="color: #AAA;"># チームメンバーにURLを共有して招待しましょう！</p>
+  <%= link_to "Answer 4 questions", new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-3' %>
+</div>
+
+<div class="container">
+
+  <div class="card card-secondary mb-3">
+    <p>Q1. 自分は何が得意なのか？</p>
+    <p>Q2. 自分はどういうふうに仕事をするか？</p>
+    <p>Q3. 自分が大切に思う価値は何か？</p>
+    <p>Q4. チームメンバーは自分にどんな成果を期待してると思うか？</p>
+  </div>
+
+  <% @members.each do |member| %>
+    <div class="card card-primary mb-2">
+      <h3 class="mb-1"><%= member.name %></h3>
+      <%= render 'member_card', answers: member.ans_q1 %>
+      <%= render 'member_card', answers: member.ans_q2 %>
+      <%= render 'member_card', answers: member.ans_q3 %>
+      <%= render 'member_card', answers: member.ans_q4 %>
+    </div>
+  <% end %>
+
 </div>
