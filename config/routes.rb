@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   delete  'members/:uid',       to: 'members#destroy',  as: 'destroy_member'
 
   # Common path
-  get 'terms',  to: 'common#tos', as: 'tos'
+  get 'terms',    to: 'common#tos', as: 'tos'
+  get 'privacy',  to: 'common#pp',  as: 'pp'
 
   root to: 'common#index'
 end

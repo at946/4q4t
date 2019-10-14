@@ -4,4 +4,7 @@ class CommonController < ApplicationController
 
   def tos
   end
+
+  def pp
+  end
 end

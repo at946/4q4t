@@ -1,7 +1,7 @@
 <div class="card card-secondary mb-1">
   <% if answers.present? %>
     <% answers.each do |ans| %>
-      <p>・<%= ans %></p>
+      <p style="display: flex; align-items: center;"><i class="material-icons text-secondary">keyboard_arrow_right</i><%= ans %></p>
     <% end %>
   <% else %>
     <p>No answer.</p>

@@ -53,4 +53,10 @@ feature "09_user_show_terms_of_service", type: :system, js: true do
     expect(current_path).to eq tos_path
   end
 
+  scenario "User moves to terms page when user clicks on terms link on footer on privacy policy page." do
+    visit pp_path
+    click_on :terms_link
+    expect(current_path).to eq tos_path
+  end
+
 end
