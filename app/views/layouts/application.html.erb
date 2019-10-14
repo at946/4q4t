@@ -18,11 +18,13 @@
       </div>
     </header>
 
-    <div class="pt-4"></div>
     <%= yield %>
 
     <footer class="footer">
-      (c) at.
+      <ul>
+        <li><%= link_to "terms", tos_path, id: :terms_link, class: "text-white" %></li>
+      </ul>
+      <p>(c) at.</p>
     </footer>
   </body>
 </html>

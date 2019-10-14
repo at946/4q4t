@@ -21,10 +21,10 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  position: relative;
-  @extend .pb-4;
-  box-sizing: border-box;
+  @extend .pt-4;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 4rem);
 }
 
 .container {
@@ -38,6 +38,22 @@ h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.5rem; }
 
-h1, h2, h3, p {
+h1, h2, h3, p, li {
   line-height: 1.8;
 }
+
+ol {
+  @extend .ml-2;
+}
+
+// ol {
+//   list-style: none;
+//   counter-reset: num;
+
+//   > li:before {
+//     content: counter(num) ". ";
+//     counter-increment: num;
+//     display: inline-block;
+//     width: 2rem;
+//   }
+// }
