@@ -161,3 +161,7 @@ a.reload
 a
 a.reload
 a.reload!
+Team.all
+Member.all
+Team.all
+Member.all

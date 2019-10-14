@@ -16,7 +16,8 @@
   <% if new %>
     <button id="team_create_button" class="button">Create</button>
   <% else %>
-    <button id="team_update_button" class="button">Update</button>
+    <button id="team_update_button" class="button mb-2">Update</button><br />
+    <%= link_to "Delete", destroy_team_path(team), method: :delete, id: "delete_team_button", class: "text-error", data: { confirm: "チームの削除は元に戻すことができません。また、チームの全てのメンバーも削除されます。本当に削除しますか？" } %>
   <% end %>
 
 <% end %>
