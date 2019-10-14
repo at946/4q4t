@@ -31,6 +31,7 @@ class Member < ApplicationRecord
   private
     # delete space & nil items
     def format_ans(array)
+      exit if array.nil?
       array.reject!(&:blank?)
       array.each do |ans|
         delete_space(ans)
