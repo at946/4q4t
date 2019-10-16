@@ -1,9 +1,11 @@
-<div class="card card-secondary mb-1">
+<div class="card card-primary-left mb-1">
   <% if answers.present? %>
+    <ol class="ml-1">
     <% answers.each do |ans| %>
-      <p style="display: flex; align-items: center;"><i class="material-icons text-secondary">keyboard_arrow_right</i><%= ans %></p>
+      <li><%= ans %></li>
     <% end %>
+    </ol>
   <% else %>
-    <p>No answer.</p>
+    <p class="text-left">No answer.</p>
   <% end %>
 </div>

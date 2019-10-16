@@ -1,10 +1,12 @@
+@import 'mp';
 @import 'color';
 @import 'shadow';
 
+// Base card
 .card {
-  text-align: left;
   @extend .p-1;
   @extend .shadow;
+  box-sizing: border-box;
 
   .card-header {
     display: flex;
@@ -12,10 +14,13 @@
   }
 }
 
-.card-primary {
-  border-left: solid 1rem $primary-color;
-}
-
-.card-secondary {
-  border-left: solid 1rem $secondary-color;
+// Tag
+$positions: "left", "right";
+@each $type, $color in $type-color {
+  @each $position in $positions {
+    .card-#{$type}-#{$position} {
+      border-#{$position}: solid 1rem $color;
+      @extend .text-#{$position};
+    }    
+  }
 }

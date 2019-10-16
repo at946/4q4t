@@ -1,9 +1,9 @@
 <%= form_with(model: team, url: url, local: true) do |form| %>
   <% if team.errors.any? %>
-    <div class="pb-2">
+    <div class="mb-2">
       <ul>
         <% team.errors.full_messages.each do |message| %>
-          <li class="text-error"><%= message %>.</li>
+          <li class="text-alert"><%= message %>.</li>
         <% end %>
       </ul>
     </div>
@@ -14,10 +14,10 @@
   </div>
 
   <% if new %>
-    <button id="team_create_button" class="button">Create</button>
+    <button id="team_create_button" class="button bg-accent">Create</button>
   <% else %>
-    <button id="team_update_button" class="button mb-2">Update</button><br />
-    <%= link_to "Delete", destroy_team_path(team), method: :delete, id: "delete_team_button", class: "text-error", data: { confirm: "チームの削除は元に戻すことができません。また、チームの全てのメンバーも削除されます。本当に削除しますか？" } %>
+    <button id="team_update_button" class="button bg-accent mb-2">Update</button><br />
+    <%= link_to "Delete", destroy_team_path(team), method: :delete, id: "delete_team_button", class: "text-alert", data: { confirm: "チームの削除は元に戻すことができません。また、チームの全てのメンバーも削除されます。本当に削除しますか？" } %>
   <% end %>
 
 <% end %>

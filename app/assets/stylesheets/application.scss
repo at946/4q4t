@@ -1,23 +1,11 @@
 // Reset CSS
 @import "reset";
 
-@import "components/color";
-@import "components/font";
-@import "components/mp";
-@import "components/button";
-@import "components/header";
-@import "components/footer";
-@import "components/input";
-@import "components/card";
-@import "components/icon";
-
-
-@import "common";
+@import "components/*";
 
 html {
   @extend .font-secondary;
   @extend .text-black;
-  font-size: 16px;
 }
 
 body {
@@ -27,33 +15,16 @@ body {
   min-height: calc(100vh - 4rem);
 }
 
-.container {
-  @extend .mx-auto;
-  max-width: 1280px;
-  width: 80%;
-  text-align: center;
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-
-h1, h2, h3, p, li {
-  line-height: 1.8;
-}
-
 ol {
   @extend .ml-2;
 }
 
-// ol {
-//   list-style: none;
-//   counter-reset: num;
+.ol-questions {
+  list-style: none;
+  counter-reset: cnt;
 
-//   > li:before {
-//     content: counter(num) ". ";
-//     counter-increment: num;
-//     display: inline-block;
-//     width: 2rem;
-//   }
-// }
+  & li:before {
+    counter-increment: cnt;
+    content: "Q" counters(cnt, ".") ". ";
+  }
+}

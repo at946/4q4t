@@ -1,37 +1,42 @@
-<div class="container">
-  <h2 class="pt-3 pb-1">
+<div class="container my-3">
+  <h2>
     <%= @team.name %>
     <%= link_to edit_team_path(@team), id: :edit_team_icon do %>
-      <i class="material-icons edit-icon">edit</i>
+      <i class="material-icons text-accent">edit</i>
     <% end %>
   </h2>
   <p style="overflow: scroll;" class="text-secondary"><%= request.url %></p>
-  <p class="mb-2" style="color: #AAA;"># チームメンバーにURLを共有して招待しましょう！</p>
-  <%= link_to "Answer 4 questions", new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-3' %>
-</div>
+  <p class="mb-2" style="color: #AAA;">URLを共有してメンバーを招待しましょう！</p>
+  <%= link_to "Answer 4 questions", new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-3 bg-accent' %>
 
-<div class="container">
-
-  <div class="card card-secondary mb-3">
-    <p>Q1. 自分は何が得意なのか？</p>
-    <p>Q2. 自分はどういうふうに仕事をするか？</p>
-    <p>Q3. 自分が大切に思う価値は何か？</p>
-    <p>Q4. チームメンバーは自分にどんな成果を期待してると思うか？</p>
+  <div class="px-1">
+    <div class="card card-accent-left mb-3">
+      <ol class="ml-0 ol-questions">
+        <li>自分は何が得意なのか？</li>
+        <li>自分はどんなふうに仕事をするか？</li>
+        <li>自分が大切に思う価値は何か？</li>
+        <li>チームメンバーは自分にどんな成果を期待してるか？</li>
+      </ol>
+    </div>
   </div>
 
-  <% @members.each do |member| %>
-    <div class="card card-primary mb-2 member-card">
-      <div class="mb-1 card-header">
-        <h3 style="margin-right: auto;"><%= member.name %></h3>
-        <%= link_to edit_member_path member do %>
-          <i class="edit-icon material-icons">edit</i>
-        <% end %>
+  <div class="f-container">
+    <% @members.each do |member| %>
+      <div class="f-item-12 p-1">
+        <div class="card card-primary-left h-100 member-card">
+          <div class="mb-1 card-header">
+            <h3 class="mr-auto"><%= member.name %></h3>
+            <%= link_to edit_member_path member do %>
+              <i class="material-icons text-accent edit-icon">edit</i>
+            <% end %>
+          </div>
+          <%= render 'member_card', answers: member.ans_q1 %>
+          <%= render 'member_card', answers: member.ans_q2 %>
+          <%= render 'member_card', answers: member.ans_q3 %>
+          <%= render 'member_card', answers: member.ans_q4 %>
+        </div>
       </div>
-      <%= render 'member_card', answers: member.ans_q1 %>
-      <%= render 'member_card', answers: member.ans_q2 %>
-      <%= render 'member_card', answers: member.ans_q3 %>
-      <%= render 'member_card', answers: member.ans_q4 %>
-    </div>
   <% end %>
+  </div>
 
 </div>

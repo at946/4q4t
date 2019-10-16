@@ -1,31 +1,19 @@
+@import 'size';
 @import 'color';
 @import 'shadow';
-
-input, button, textarea, select {
-  margin: 0;
-  padding: 0;
-  background: none;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
+@import 'mp';
 
 .input {
-  width: 100%;
+  @extend .w-100;
   font-size: 1rem;
-  @extend .font-secondary;
-  background-color: whitesmoke;
   box-sizing: border-box;
-  // line-height: 2;
+  @extend .bg-grey;
   @extend .p-1;
-  @extend .input-shadow;
   @extend .text-black;
+  transition: all 0.5s;
 
   &:focus {
-    @extend .bg-secondary;
+    @extend .bg-primary;
     @extend .text-white;
     &::placeholder {
       @extend .text-white;

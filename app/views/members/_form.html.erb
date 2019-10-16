@@ -3,7 +3,7 @@
     <div class="pb-2">
       <ul>
         <% member.errors.full_messages.each do |message| %>
-          <li class="text-error" style="line-height: 1.5;"><%= message %>.</li>
+          <li class="text-alert"><%= message %>.</li>
         <% end %>
       </ul>
     </div>
@@ -26,7 +26,7 @@
 
   <div class="mb-2">
     <div class="card card-primary">
-      <p>Q2. 自分はどういうふうに仕事をするか？</p>
+      <p>Q2. 自分はどんなふうに仕事をするか？</p>
       <div class="mt-1">
         <%= form.text_field :ans_q2, name: "member[ans_q2][]", value: member.ans_q2.to_a[0], id: :member_ans_q2_1, class: 'input mb-1' %>
         <%= form.text_field :ans_q2, name: "member[ans_q2][]", value: member.ans_q2.to_a[1], id: :member_ans_q2_2, class: 'input mb-1' %>
@@ -48,7 +48,7 @@
 
   <div class="mb-2">
     <div class="card card-primary">
-      <p>Q4. チームメンバーは自分にどんな成果を期待してると思うか？</p>
+      <p>Q4. チームメンバーは自分にどんな成果を期待してるか？</p>
       <div class="mt-1">
         <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: member.ans_q4.to_a[0], id: :member_ans_q4_1, class: 'input mb-1' %>
         <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: member.ans_q4.to_a[1], id: :member_ans_q4_2, class: 'input mb-1' %>
@@ -62,9 +62,9 @@
   </div>
 
   <% if create %>
-    <button type="submit" id="create_member_button" class="button">Answer</button>
+    <button type="submit" id="create_member_button" class="button bg-accent">Answer</button>
   <% else %>
-    <button type="submit" id="update_member_button" class="button mb-2">Update</button><br>
-    <%= link_to "Delete", destroy_member_path(member), method: :delete, id: "delete_member_button", class: "text-error", data: { confirm: "メンバーの削除は元に戻すことができません。本当に削除しますか？" } %>
+    <button type="submit" id="update_member_button" class="button mb-2 bg-accent">Update</button><br>
+    <%= link_to "Delete", destroy_member_path(member), method: :delete, id: "delete_member_button", class: "text-alert", data: { confirm: "メンバーの削除は元に戻すことができません。本当に削除しますか？" } %>
   <% end %>
 <% end %>

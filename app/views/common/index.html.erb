@@ -1,55 +1,65 @@
-<div class="hero-area">
+<div class="bg-primary py-3">
   <div class="container">
-    <h1 class="hero-title">4 Questions For Team.</h1>
-    <%= image_tag "hero_image.png", class: "hero-image mb-2" %>
+    <h1 class="text-white font-primary">4 Questions <br class="hide-tablet hide-pc">For Team.</h1>
+    <%= image_tag "hero_image.png", class: "my-3", style: "max-width: 100%; max-height: 50vh;" %>
     <br />
-    <%= link_to "Make a team", new_team_path, id: :new_team_link, class: "button" %>
+    <%= link_to "Make a team", new_team_path, id: :new_team_link, class: "button bg-accent" %>
   </div>
 </div>
 
-<div class="container mb-5">
-  <h1 class="text-primary font-primary pt-3">About me</h1>
-  <p style="white-space: pre-wrap;">
-<span class="font-primary">4Q4T</span>は、チームメンバー１人１人のチームからの期待を可視化する<a href="https://agilewarrior.wordpress.com/2009/11/27/the-drucker-exercise/" target="_blank"><b class="secondary-text">Drucker exercise -ドラッカー風エクササイズ-</b></a> というワークショップをチームで気軽に取り組むためのサービスです。
-
-「チームの期待に応えられていない…」「チームが期待に応えてくれない…」
-そんな悩みを抱えているなら、<span class="font-primary">4Q4T</span>で期待の可視化をやってみませんか？      
-  </p>
+<div class="py-3">
+  <div class="container">
+    <h1 class="font-primary">About me</h1>
+    <p>
+      <span class="font-primary">4Q4T</span>は、チームビルディングやチーム活動に悩むチームのためのサービスです。<br>
+      このサービスを使えば、<br class="hide-tablet hide-pc">
+      メンバー１人１人の特徴や期待を可視化する<br class="hide-tablet hide-pc">
+      Drucker exercise -ドラッカー風エクササイズ-<br class="hide-tablet hide-pc">
+      にチームで気軽に取り組むことができます。<br><br>
+      「チームの期待に応えられていない…」<br class="hide-tablet hide-pc">
+      「チームが期待に応えてくれない…」<br>
+      そんな悩みを抱えているなら、<br class="hide-tablet hide-pc">
+      <span class="font-primary">4Q4T</span>で期待の可視化をやってみませんか？      
+    </p>
+  </div>
 </div>
 
-<div class="container">
-  <h1 class="text-primary mb-1">How to use</h1>
+<div class="bg-primary py-3 text-white">
+  <div class="container">
+    <h1 class="font-primary">How to use</h1>
 
-  <div class="pt-2">
-    <h2>1. Make a team</h2>
-    <p style="white-space: pre-wrap;">
-  まずはチームを作成しましょう。チーム名を登録するだけで簡単にチームスペースを作ることができます。
-  チームスペースのURLを共有するだけで簡単にチームスペースにアクセスできるようになります。
-    </p>
-  </div>
+    <div class="f-container">
+      <%= 
+        render 'how_to_use_card', 
+        title: "1. Make a team", 
+        text: 
+          "まずはチームを作成します。チーム名を登録するだけで簡単にチームスペースを作ることができます。<br />
+          チームスペースのURLを共有するだけでメンバーもチームスペースにアクセスできます。"
+      %>
 
-  <div class="pt-2">
-    <h2 class="secondary-text">2. Answer qusetions</h2>
-    <p style="white-space: pre-wrap;">
-  メンバーそれぞれで4つの質問に答えましょう。
-    </p>
-  </div>
+      <%= 
+        render 'how_to_use_card',
+        title: "2. Answer questions",
+        text:
+          "チームスペースにアクセスできたら、それぞれで4つの質問に答えましょう。<br />
+          あまり時間をかけず、思ったことをそのまま記入していきます。"
+      %>
 
-  <div class="pt-2">
-    <h2 class="secondary-text">3. Discuss about each answer</h2>
-    <p style="white-space: pre-wrap;">
-  メンバーそれぞれの質問の答えが出揃ったら、その答えについて話し合いましょう。
+      <%=
+        render 'how_to_use_card',
+        title: "3. Discussion",
+        text: 
+          "チームで集まって一人一人の答えを議論していきましょう。<br>
+          特に4つ目の質問は期待です。ここをしっかり合わせましょう！"
+      %>
 
-  まずは一人が自分の答えをメンバーに伝えます。
-  そして、他のメンバーからフィードバックをもらいます。特に4つ目の質問はこのチームがあなたにかける期待です。互いに妥協せずに話し合いましょう！
-    </p>
-  </div>
-
-  <div class="pt-2 pb-5">
-    <h2 class="secondary-text">4. That's all</h2>
-    <p style="white-space: pre-wrap;">
-  これで完了です！メンバー全員の考え方や期待が可視化されて、チームとして活動しやすくなっているでしょう。
-  しかし、考え方や期待は時が経つにつれて変わるもの。1ヶ月など定期的にこの営みを繰り返して見直しを図りましょう！
-    </p>
+      <%=
+        render 'how_to_use_card',
+        title: "4. That's all",
+        text:
+          "メンバー全員の考え方や期待が可視化されて、チームとして活動しやすくなっているでしょう。<br />
+          1回作って終わりではなく定期的にアップデートしましょう。"
+      %>
+    </div>
   </div>
 </div>

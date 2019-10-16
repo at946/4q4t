@@ -1,18 +1,16 @@
-$primary-color: #23C69E;
-$secondary-color: #8A8AF8;
-$error-color: #D44444;
-$black: #444444;
+@import 'variables';
 
 $type-color: (
   'primary': $primary-color,
-  'secondary': $secondary-color,
-  'error': $error-color,
+  'accent': $accent-color,
+  'alert': $alert-color,
   'black': $black,
   'white': white,
+  'grey': #e8e8e8
 );
 
 @each $type, $color in $type-color {
-  .bg-#{$type} { background-color: $color!important; }
-  .text-#{$type} { color: $color!important; }
-  .border-#{$type} { border-color: $color!important; }
+  .text-#{$type}    { color:            $color!important; }
+  .bg-#{$type}      { background-color: $color!important; }
+  .border-#{$type}  { border-color:     $color!important; }
 }
