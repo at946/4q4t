@@ -1,0 +1,36 @@
+@import 'variables';
+
+// devide number
+$num: 12;
+
+.f-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  @for $i from 1 through $num {
+    .f-item-#{$i} {
+      width: calc(100% / (#{$num} / #{$i}));
+      box-sizing: border-box;
+    }
+    .f-item-mobile-#{$i} {
+      @media #{$mobile} {
+        width: calc(100% / (#{$num} / #{$i}))!important;
+        box-sizing: border-box;  
+      }
+    }
+    .f-item-tablet-#{$i} {
+      @media #{$tablet} {
+        width: calc(100% / (#{$num} / #{$i}))!important;
+        box-sizing: border-box;  
+      }
+    }
+    .f-item-pc-#{$i} {
+      @media #{$pc} {
+        width: calc(100% / (#{$num} / #{$i}))!important;
+        box-sizing: border-box;  
+      }
+    }
+  }
+}
+

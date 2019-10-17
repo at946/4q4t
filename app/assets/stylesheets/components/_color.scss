@@ -1,0 +1,16 @@
+@import 'variables';
+
+$type-color: (
+  'primary': $primary-color,
+  'accent': $accent-color,
+  'alert': $alert-color,
+  'black': $black,
+  'white': white,
+  'grey': #e8e8e8
+);
+
+@each $type, $color in $type-color {
+  .text-#{$type}    { color:            $color!important; }
+  .bg-#{$type}      { background-color: $color!important; }
+  .border-#{$type}  { border-color:     $color!important; }
+}

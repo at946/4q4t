@@ -1,0 +1,61 @@
+<div class="bg-primary py-3">
+  <div class="container">
+    <h1 class="text-white font-primary">4 Questions <br class="hide-tablet hide-pc">For Team.</h1>
+    <%= image_tag "hero_image.png", class: "my-3", style: "max-width: 100%; max-height: 50vh;" %>
+    <br />
+    <%= link_to "Make a team", new_team_path, id: :new_team_link, class: "button bg-accent" %>
+  </div>
+</div>
+
+<div class="py-3">
+  <div class="container">
+    <h1 class="font-primary">About me</h1>
+    <p>
+      <span class="font-primary">4Q4T</span>は、チームメンバー同士の<br class="hide-tablet hide-pc">期待を可視化し確認しあうためのツールです。<br>
+      『ドラッカー風エクササイズ』という<br class="hide-pc">チームビルディングに効果的なワークショップを気軽に実践することができます。<br><br>
+      「チームが期待に応えてくれない…」<br class="hide-tablet hide-pc">
+      「チームの期待に応えられていないかも…」<br>
+      そんな悩みを解消するために、<br class="hide-tablet hide-pc">チーム全員で取り組んでみてください。
+    </p>
+  </div>
+</div>
+
+<div class="bg-primary py-3 text-white">
+  <div class="container">
+    <h1 class="font-primary">How to use</h1>
+
+    <div class="f-container">
+      <%= 
+        render 'how_to_use_card', 
+        title: "1. Make a team", 
+        text: 
+          "まずはチームを作成します。チーム名を登録するだけで簡単にチームスペースを作ることができます。<br />
+          チームスペースのURLを共有するだけでメンバーもチームスペースにアクセスできます。"
+      %>
+
+      <%= 
+        render 'how_to_use_card',
+        title: "2. Answer questions",
+        text:
+          "チームスペースにアクセスできたら、それぞれで4つの質問に答えましょう。<br />
+          あまり時間をかけず、思ったことをそのまま記入していきます。"
+      %>
+
+      <%=
+        render 'how_to_use_card',
+        title: "3. Discussion",
+        text: 
+          "チームで集まって一人一人の答えを議論していきましょう。<br>
+          特に4つ目の質問は期待です。ここをしっかり合わせましょう！"
+      %>
+
+      <%=
+        render 'how_to_use_card',
+        title: "4. That's all",
+        text:
+          "メンバー全員の考え方や期待が可視化されて、チームとして活動しやすくなっているでしょう。<br />
+          1回作って終わりではなく定期的にアップデートしましょう。"
+      %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+@import 'size';
+@import 'color';
+@import 'shadow';
+@import 'mp';
+
+.input {
+  @extend .w-100;
+  font-size: 1rem;
+  box-sizing: border-box;
+  @extend .bg-grey;
+  @extend .p-1;
+  @extend .text-black;
+  transition: all 0.5s;
+
+  &:focus {
+    @extend .bg-primary;
+    @extend .text-white;
+    &::placeholder {
+      @extend .text-white;
+    }
+  }
+ }

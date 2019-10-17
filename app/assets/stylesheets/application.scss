@@ -1,0 +1,30 @@
+// Reset CSS
+@import "reset";
+
+@import "components/*";
+
+html {
+  @extend .font-secondary;
+  @extend .text-black;
+}
+
+body {
+  @extend .pt-4;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 4rem);
+}
+
+ol {
+  @extend .ml-2;
+}
+
+.ol-questions {
+  list-style: none;
+  counter-reset: cnt;
+
+  & li:before {
+    counter-increment: cnt;
+    content: "Q" counters(cnt, ".") ". ";
+  }
+}

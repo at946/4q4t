@@ -1,0 +1,10 @@
+@import 'mp';
+@import 'text';
+
+.container {
+  max-width: 960px;
+  @media #{$mobile} { width: 90%; }
+  @media #{$tablet}, #{$pc} { width: 80%; }
+  @extend .mx-auto;
+  @extend .text-center;
+}

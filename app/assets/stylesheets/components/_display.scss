@@ -1,0 +1,5 @@
+@import "variables";
+
+.hide-mobile { @media #{$mobile} { display: none; } }
+.hide-tablet { @media #{$tablet} { display: none; } }
+.hide-pc     { @media #{$pc}     { display: none; } }

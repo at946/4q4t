@@ -1,0 +1,26 @@
+$num: 5;
+
+$symbol-type: (
+  "m": "margin",
+  "p": "padding"
+);
+
+@each $symbol, $type in $symbol-type {
+  @for $i from 0 through $num {
+    .#{$symbol}t-#{$i} { #{$type}-top: #{$i}rem !important; }
+    .#{$symbol}b-#{$i} { #{$type}-bottom: #{$i}rem !important; }
+    .#{$symbol}l-#{$i} { #{$type}-left: #{$i}rem !important; }
+    .#{$symbol}r-#{$i} { #{$type}-right: #{$i}rem !important; }
+    .#{$symbol}x-#{$i} { @extend .#{$symbol}l-#{$i}; @extend .#{$symbol}r-#{$i}; }
+    .#{$symbol}y-#{$i} { @extend .#{$symbol}t-#{$i}; @extend .#{$symbol}b-#{$i}; }
+    .#{$symbol}-#{$i}  { #{$type}: #{$i}rem !important; }
+  }
+  .#{$symbol}t-auto { #{$type}-top: auto!important; }
+  .#{$symbol}l-auto { #{$type}-left: auto!important; }
+  .#{$symbol}r-auto { #{$type}-right: auto!important; }
+  .#{$symbol}b-auto { #{$type}-bottom: auto!important; }
+  .#{$symbol}y-auto { @extend .#{$symbol}t-auto; @extend .#{$symbol}b-auto; }
+  .#{$symbol}x-auto { @extend .#{$symbol}l-auto; @extend .#{$symbol}r-auto; }
+  .#{$symbol}-auto  { #{$type}: auto; }
+}
+

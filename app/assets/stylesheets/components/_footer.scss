@@ -1,0 +1,13 @@
+@import 'color';
+@import 'mp';
+@import 'text';
+@import 'size';
+
+.footer {
+  @extend .py-1;
+  @extend .mt-auto;
+  @extend .bg-black;
+  @extend .text-white;
+  @extend .text-center;
+  @extend .w-100;
+}

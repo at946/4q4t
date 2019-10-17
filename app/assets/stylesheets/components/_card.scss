@@ -1,0 +1,26 @@
+@import 'mp';
+@import 'color';
+@import 'shadow';
+
+// Base card
+.card {
+  @extend .p-1;
+  @extend .shadow;
+  box-sizing: border-box;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// Tag
+$positions: "left", "right";
+@each $type, $color in $type-color {
+  @each $position in $positions {
+    .card-#{$type}-#{$position} {
+      border-#{$position}: solid 1rem $color;
+      @extend .text-#{$position};
+    }    
+  }
+}

@@ -1,0 +1,19 @@
+@import 'mp';
+@import 'color';
+@import 'shadow';
+
+.button {
+  @extend .px-2;
+  @extend .text-white;
+  @extend .shadow;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 3;
+  border-radius: 2rem;
+  border: 0;
+  transition: all 0.5s;
+
+  &:hover, &:focus {
+    @extend .hover-shadow;
+  }
+}
