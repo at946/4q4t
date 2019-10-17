@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>4Q4T</title>
+    <title>4Q4T -Easy Drucker Exercise Tool-</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- metatag -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="4Q4Tは、チームメンバー同士の期待を可視化し確認しあうためのツールです。『ドラッカー風エクササイズ』というチームビルディングに効果的なワークショップを気軽に実践することができます。<br>「チームが期待に応えてくれない…」「チームの期待に応えられていないかも…」そんな悩みを解消するために、チーム全員で取り組んでみてください。">
+    <% if @noindex %>
+    <meta name="robots" content="noindex,nofollow">
+    <% end %>
+    <meta name="format-detection" content="email=no,telephone=no,address=no">
+
+    <!-- OGP tag -->
+    <meta property="og:url"         content=<%= root_url %>>
+    <meta property="og:title"       content="4Q4T -Easy Drucker Exercise Tool-">
+    <meta property="og:type"        content="website">
+    <meta property="og:description" content="4Q4Tは、チームメンバー同士の期待を可視化し確認しあうためのツールです。『ドラッカー風エクササイズ』というチームビルディングに効果的なワークショップを気軽に実践することができます。<br>「チームが期待に応えてくれない…」「チームの期待に応えられていないかも…」そんな悩みを解消するために、チーム全員で取り組んでみてください。">
+    <meta property="og:image"       content=<%= image_url("ogp.png") %>>
+    <meta name="twitter:card"       content="summary_large_image">
+    <meta name="twitter:site"       content="@at_946">
+    <meta property="og:site_name"   content="4Q4T -Easy Drucker Exercise Tool-">
+    <meta property="og:locale"      content="ja_JP">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>

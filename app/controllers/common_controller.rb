@@ -1,4 +1,6 @@
 class CommonController < ApplicationController
+  before_action :set_noindex, only: [:tos, :pp]
+
   def index
   end
 
@@ -7,4 +9,5 @@ class CommonController < ApplicationController
 
   def pp
   end
+
 end
