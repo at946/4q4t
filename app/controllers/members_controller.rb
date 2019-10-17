@@ -1,17 +1,6 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:edit, :update, :destroy]
   before_action :set_noindex
-
-  # GET /members
-  # GET /members.json
-  # def index
-  #   @members = Member.all
-  # end
-
-  # GET /members/1
-  # GET /members/1.json
-  # def show
-  # end
 
   # GET /members/new
   def new
@@ -25,52 +14,39 @@ class MembersController < ApplicationController
     @member.team = team
   end
 
-  # GET /members/1/edit
-  def edit
-  end
-
-  # POST /memebrs
-  # POST /members.json
+  # POST /members/new
   def create
     @member = Member.new(member_params)
 
-    respond_to do |format|
-      if @member.save
-        format.html { redirect_to team_path(@member.team), notice: 'Member was successfully created.' }
-        # format.json { render :show, status: :created, location: @member }
-      else
-        format.html { render :new }
-        # format.json { render json: @member.errors, status: :unprocessable_entity }
-      end
+    if @member.save
+      redirect_to team_path(@member.team)
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /members/1
-  # PATCH/PUT /members/1.json
+  # GET /members/:uid/edit
+  def edit
+  end
+
+
+  # PATCH /members/:uid/edit
   def update
-    respond_to do |format|
-      if @member.update(member_params)
-        format.html { redirect_to team_path(@member.team) }
-        # format.json { render :show, status: :ok, location: @member }
-      else
-        format.html { render :edit }
-        # format.json { render json: @member.errors, status: :unprocessable_entity }
-      end
+    if @member.update(member_params)
+      redirect_to team_path(@member.team)
+    else
+      render :edit
     end
   end
 
-  # DELETE /members/1
-  # DELETE /members/1.json
+  # DELETE /members/:uid
   def destroy
     @member.destroy
-    respond_to do |format|
-      format.html { redirect_to team_path(@member.team) }
-      # format.json { head :no_content }
-    end
+    redirect_to team_path(@member.team)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # params[:uid]のMemberを検索し@memberに格納する。Memberが存在しない場合はエラーページに遷移する。
     def set_member
       begin
         @member = Member.find(params[:uid])
@@ -80,7 +56,7 @@ class MembersController < ApplicationController
       end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    #  Strong parameters
     def member_params
       params.require(:member).permit(:team_id, :name, ans_q1: [], ans_q2: [], ans_q3: [], ans_q4: [])
     end

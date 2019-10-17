@@ -2,15 +2,9 @@ class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :set_noindex
 
-  # GET /teams
-  # GET /teams.json
-  # def index
-  #   @teams = Team.all
-  # end
-
-  # GET /teams/1
-  # GET /teams/1.json
+  # GET /teams/:uid
   def show
+    # メンバーカードの一覧を表示するため、チームの全メンバーの情報を@membersに格納する
     @members = @team.members
   end
 
@@ -19,52 +13,38 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  # GET /teams/1/edit
-  def edit
-  end
-
-  # POST /teams
-  # POST /teams.json
+  # POST /teams/new
   def create
     @team = Team.new(team_params)
 
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to team_path @team.uid }
-        # format.json { render :show, status: :created, location: @team }
-      else
-        format.html { render :new }
-        # format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    if @team.save
+      redirect_to team_path @team.uid
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /teams/1
-  # PATCH/PUT /teams/1.json
+  # GET /teams/:uid/edit
+  def edit
+  end
+
+  # PATCH /teams/:uid/edit
   def update
-    respond_to do |format|
-      if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @team }
-      else
-        format.html { render :edit }
-        # format.json { render json: @team.errors, status: :unprocessable_entity }
-      end
+    if @team.update(team_params)
+      redirect_to @team
+    else
+      render :edit
     end
   end
 
-  # DELETE /teams/1
-  # DELETE /teams/1.json
+  # DELETE /teams/:uid
   def destroy
     @team.destroy
     redirect_to root_path
   end
 
-  def not_found
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # params[:uid]からTeamを検索し@teamに格納する。TeamがNot foundの場合はエラーページへ遷移させる。
     def set_team
       begin
         @team = Team.find(params[:uid])
@@ -74,7 +54,7 @@ class TeamsController < ApplicationController
       end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Strong parameters
     def team_params
       params.require(:team).permit(:name)
     end
