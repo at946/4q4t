@@ -1,7 +1,7 @@
 image: tmaier/docker-compose:latest
 
-# services:
-#   - docker:dind
+services:
+  - docker:dind
 
 rspec:
   stage: test
@@ -12,5 +12,8 @@ rspec:
     - docker-compose run web rails db:migrate
     - docker-compose up -d chrome
     - docker-compose run web rspec
-  except:
-    - master
+
+deploy:
+  stage: deploy
+  script:
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli list
