@@ -1,7 +1,7 @@
 image: tmaier/docker-compose:latest
 
-services:
-  - docker:dind
+# services:
+#   - docker:dind
 
 rspec:
   stage: test
