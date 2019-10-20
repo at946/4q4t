@@ -31,3 +31,4 @@ yarn-debug.log*
 .yarn-integrity
 
 .vs-code/
+.ash_history
