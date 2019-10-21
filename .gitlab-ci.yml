@@ -19,9 +19,11 @@ deploy:
     - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
     - docker build -t $HEROKU_IMAGE .
     - docker push $HEROKU_IMAGE
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:on -a app-4q4t
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:release web -a app-4q4t
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails db:migrate -a app-4q4t
-    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails webpack:compile
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails assets:precompile -a app-4q4t
+    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails webpack:compile -a app-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails webpacker:install -a app-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run bin/webpack -a app-4q4t
-    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails assets:precompile -a app-4q4t
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:off -a app-4q4t
