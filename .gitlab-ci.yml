@@ -21,11 +21,16 @@ deploy:
     # - docker push $HEROKU_IMAGE
     - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
     - docker build -t temp_image .
+    - docker images
     - docker container create --name temp_container temp_image
+    - docker ps -a
     - docker start temp_container
-    - docker run --rm temp_container rails assets:precompile RAILS_ENV=production
+    - docker ps -a
+    - docker exec temp_container rails assets:precompile RAILS_ENV=production
     - docker stop temp_container
+    - docker ps -a
     - docker commit temp_container $HEROKU_TEST_IMAGE_NAME
+    - docker images
     # - docker tag 4q4t_web $HEROKU_TEST_IMAGE_NAME
     - docker images
     - docker push $HEROKU_TEST_IMAGE_NAME
