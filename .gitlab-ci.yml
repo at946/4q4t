@@ -19,7 +19,6 @@ deploy:
     # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
     # - docker build -t $HEROKU_IMAGE .
     # - docker push $HEROKU_IMAGE
-    - ls
     - docker-compose build web
     - docker images
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:push web -a test-4q4t
