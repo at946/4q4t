@@ -19,6 +19,7 @@ deploy:
     # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
     # - docker build -t $HEROKU_IMAGE .
     # - docker push $HEROKU_IMAGE
+    - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
     - docker-compose build web
     - docker tag 4q4t_web $HEROKU_TEST_IMAGE_NAME
     - docker images
