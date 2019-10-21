@@ -20,6 +20,7 @@ deploy:
     # - docker build -t $HEROKU_IMAGE .
     # - docker push $HEROKU_IMAGE
     - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
+    - echo $RAIS_MASTER_KEY > config/master.key
     - docker build -t temp_image .
     - docker images
     - docker container create --name temp_container temp_image
