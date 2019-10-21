@@ -20,7 +20,7 @@ deploy:
     # - docker build -t $HEROKU_IMAGE .
     # - docker push $HEROKU_IMAGE
     - docker-compose build web
-    - docker images
+    - docker tag 4q4t_web $HEROKU_TEST_IMAGE_NAME
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:push web -a test-4q4t
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:on -a test-4q4t
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:release web -a test-4q4t
