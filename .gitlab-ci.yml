@@ -3,7 +3,7 @@ image: tmaier/docker-compose:latest
 services:
   - docker:dind
 
-rspec:
+.rspec:
   stage: test
   script:
     - docker-compose build

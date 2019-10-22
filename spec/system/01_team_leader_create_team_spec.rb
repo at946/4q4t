@@ -2,7 +2,7 @@ feature "01_team_leader_create_team", type: :system, js: true do
 
   scenario "User can access top page directly." do
     visit root_path
-    expect(current_path).to eq new_team_path
+    expect(current_path).to eq root_path
   end
 
   scenario "User can access team create page directly." do
