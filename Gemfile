@@ -57,3 +57,6 @@ gem 'pry-rails'
 gem 'hirb'
 gem 'hirb-unicode'
 gem 'awesome_print'
+
+# 500エラーをSlackに通知する
+gem 'slack_500'
