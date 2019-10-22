@@ -4,5 +4,5 @@ build:
 
 release:
   command:
-    - rails db:migrate
+    - rails db:migrat
     - rails assets:precompile
