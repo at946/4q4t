@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   # 500エラーのときにSlackに通知する（productionのみ）
   if Rails.env.production?
-    # rescue_from Exception, with: :rescue_500
+    rescue_from Exception, with: :rescue_500
   end
 
   def rescue_500(exception)
