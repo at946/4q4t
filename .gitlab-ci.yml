@@ -12,11 +12,15 @@ services:
     - docker-compose run web rails db:migrate
     - docker-compose up -d chrome
     - docker-compose run web rspec
+  only:
+    - develop
+    - master
 
 deploy:
   stage: deploy
   script:
     - apk update && apk add git
     - git remote add heroku https://heroku:${HEROKU_API_KEY}@git.heroku.com/${HEROKU_APP_NAME}.git
-    - git branch -a
-    - git push -f heroku remotes/origin/develop:master
+    - git push -f heroku remotes/origin/master:master
+  only:
+    - master
