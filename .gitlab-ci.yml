@@ -16,34 +16,34 @@ services:
 deploy:
   stage: deploy
   script:
-    # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
-    # - docker build -t $HEROKU_IMAGE .
+    - git push heroku master
+    # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
+    # - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release .
     # - docker push $HEROKU_IMAGE
-    - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin registry.heroku.com
-    - echo "$RAILS_MASTER_KEY" > config/master.key
-    - cat config/master.key
-    - docker build -t temp_image .
-    - docker images
-    - docker container create --name temp_container temp_image
-    - docker ps -a
-    - docker start temp_container
-    - docker ps -a
-    - docker exec temp_container rails assets:precompile RAILS_ENV=production
-    - docker stop temp_container
-    - docker ps -a
-    - docker commit temp_container $HEROKU_TEST_IMAGE_NAME
-    - docker images
+    # - echo "$RAILS_MASTER_KEY" > config/master.key
+    # - cat config/master.key
+    # - docker build -t temp_image .
+    # - docker images
+    # - docker container create --name temp_container temp_image
+    # - docker ps -a
+    # - docker start temp_container
+    # - docker ps -a
+    # - docker exec temp_container rails assets:precompile RAILS_ENV=production
+    # - docker stop temp_container
+    # - docker ps -a
+    # - docker commit temp_container $HEROKU_TEST_IMAGE_NAME
+    # - docker images
     # - docker tag 4q4t_web $HEROKU_TEST_IMAGE_NAME
-    - docker images
-    - docker push $HEROKU_TEST_IMAGE_NAME
+    # - docker images
+    # - docker push $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:push web -a test-4q4t
-    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:on -a test-4q4t
-    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:release web -a test-4q4t
-    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails db:migrate -a test-4q4t
+    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:on -a test-4q4t
+    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:release web release -a test-4q4t
+    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails db:migrate -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run yarn upgrade -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails webpacker:install -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails assets:precompile -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails webpacker:compile -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run rails webpacker:install -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli run bin/webpack -a test-4q4t
-    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:off -a test-4q4t
+    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:off -a test-4q4t
