@@ -16,13 +16,13 @@ services:
 deploy:
   stage: deploy
   script:
-    - apk update && apk add git
-    - git remote add heroku https://git.heroku.com/$HEROKU_APP_NAME_TEST.git
-    - git add
-    - git commit -m "git push from gitlab"
-    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli git:remote -a test-4q4t
-    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli login
-    - git push heroku master
+    # - apk update && apk add git
+    # - git remote add heroku https://git.heroku.com/$HEROKU_APP_NAME_TEST.git
+    # - git add
+    # - git commit -m "git push from gitlab"
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli login
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli git:remote -a test-4q4t
+    # - git push heroku master
     # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
     # - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release .
     # - docker push $HEROKU_IMAGE
