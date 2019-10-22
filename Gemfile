@@ -60,6 +60,3 @@ gem 'awesome_print'
 
 # 500エラーをSlackに通知する
 gem 'slack_500'
-
-# Heroku log
-gem 'rails_12factor'
