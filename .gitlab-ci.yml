@@ -35,7 +35,8 @@ deploy:
     - git branch -a
     # - git add .
     # - git commit -m "git push from gitlab."
-    - git push -f heroku develop:master
+
+    - git push -f heroku remotes/origin/develop:master
     # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
     # - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release .
     # - docker push $HEROKU_IMAGE
