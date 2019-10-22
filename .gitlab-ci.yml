@@ -30,6 +30,8 @@ deploy:
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli git:remote -a test-4q4t
     # - heroku git:remote -a test-4q4t
     - git remote add heroku https://heroku:${HEROKU_API_KEY}@git.heroku.com/${HEROKU_APP_NAME_TEST}.git
+    - git add .
+    - git commit -m "git push from gitlab."
     - git push -f heroku develop:master
     # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
     # - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release .
