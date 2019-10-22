@@ -16,7 +16,7 @@ services:
 deploy:
   stage: deploy
   script:
-    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli heroku git:remote -a test-4q4t
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli git:remote -a test-4q4t
     # - git push heroku master
     # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
     # - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release .
