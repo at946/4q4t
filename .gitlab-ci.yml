@@ -27,10 +27,10 @@ deploy:
     # - docker exec heroku_container 
     # - docker exec heroku_container git:remote -a test-4q4t
     # - docker exec heroku_conta
-    # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli git:remote -a test-4q4t
-    # - git push heroku master
-    - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
-    - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release .
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli git:remote -a test-4q4t
+    - git push -f heroku develop:master
+    # - echo $HEROKU_API_KEY | docker login --username=_ --password-stdin $HEROKU_REGISTRY
+    # - docker build -t $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release .
     # - docker push $HEROKU_IMAGE
     # - echo "$RAILS_MASTER_KEY" > config/master.key
     # - cat config/master.key
@@ -47,7 +47,7 @@ deploy:
     # - docker images
     # - docker tag 4q4t_web $HEROKU_TEST_IMAGE_NAME
     # - docker images
-    - docker push $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release
+    # - docker push $HEROKU_REGISTRY/$HEROKU_APP_NAME_TEST/release
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:push web -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli maintenance:on -a test-4q4t
     # - docker run --rm -e HEROKU_API_KEY=$HEROKU_API_KEY wingrunr21/alpine-heroku-cli container:release web release -a test-4q4t
