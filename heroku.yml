@@ -5,5 +5,5 @@ build:
 release:
   image: web
   command:
-    - rails db:migrate
     - rails assets:precompile
+    - rails db:migrate
