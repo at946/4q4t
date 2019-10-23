@@ -6,4 +6,3 @@ release:
   command:
     - rails assets:precompile
     - rails db:migrate
-    - echo "Hello rails."
