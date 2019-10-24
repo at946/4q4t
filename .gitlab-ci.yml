@@ -13,7 +13,6 @@ rspec:
     - docker-compose up -d chrome
     - docker-compose run web rspec
   only:
-    - develop
     - master
 
 deploy:
