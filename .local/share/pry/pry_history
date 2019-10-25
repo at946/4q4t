@@ -165,3 +165,5 @@ Team.all
 Member.all
 Team.all
 Member.all
+Team.all
+quit

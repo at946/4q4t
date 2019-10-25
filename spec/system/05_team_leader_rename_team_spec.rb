@@ -20,12 +20,12 @@ feature "05_team_leader_rename_team", type: :system, js: true do
 
     visit edit_team_path @team
     fill_in :team_name, with: ""
-    click_on :team_update_button
+    click_on :update_team_button
     expect(current_path).to eq edit_team_path @team
     expect(page).to have_text msg
 
     fill_in :team_name, with: " 　"
-    click_on :team_update_button
+    click_on :update_team_button
     expect(current_path).to eq edit_team_path @team
     expect(page).to have_text msg
   end
@@ -37,7 +37,7 @@ feature "05_team_leader_rename_team", type: :system, js: true do
 
     visit edit_team_path @team
     fill_in :team_name, with: in_new_team_name
-    click_on :team_update_button
+    click_on :update_team_button
     
     expect(Team.all.count).to eq 1
     expect(current_path).to eq team_path @team

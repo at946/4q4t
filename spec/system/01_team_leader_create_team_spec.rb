@@ -26,11 +26,11 @@ feature "01_team_leader_create_team", type: :system, js: true do
     error_message = "Team name can't be blank"
     visit new_team_path
     fill_in :team_name, with: ""
-    click_on :team_create_button
+    click_on :create_team_button
     expect(page).to have_text error_message
 
     fill_in :team_name, with: " 　"
-    click_on :team_create_button
+    click_on :create_team_button
     expect(page).to have_text error_message
   end
 
@@ -39,13 +39,13 @@ feature "01_team_leader_create_team", type: :system, js: true do
     team_name = "ほげほげプロジェクト"
     team_name_space = " ほげほげプロジェクト　"
     fill_in :team_name, with: team_name
-    click_on :team_create_button
+    click_on :create_team_button
     expect(current_path).to eq team_path Team.last.uid
     expect(page).to have_text team_name
 
     visit new_team_path
     fill_in :team_name, with: team_name_space
-    click_on :team_create_button
+    click_on :create_team_button
     expect(current_path).to eq team_path Team.last.uid
     expect(page).to have_text team_name
     expect(page).not_to have_text team_name_space
