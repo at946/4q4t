@@ -25,7 +25,14 @@
       <div class="f-item-12 p-1">
         <div class="card card-primary-left h-100 member-card">
           <div class="mb-1 card-header">
-            <h3 class="mr-auto"><%= member.name %></h3>
+            <h3 class="mr-auto">
+              <%= member.name %>
+              <span style="font-size: 1rem;">
+                <% if member.role.present? %>
+                  （<%= member.role %>）
+                <% end %>
+              </span>
+            </h3>
             <%= link_to edit_member_path member do %>
               <i class="material-icons text-accent edit-icon">edit</i>
             <% end %>

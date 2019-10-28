@@ -1,7 +1,7 @@
 feature "02_team_leader_invite_team_members", type: :system, js: true do
 
-  before :each do
-    @team = Team.create(name: "ほげほげプロジェクト")
+  background :each do
+    @team = create(:team)
   end
 
   scenario "User can access show team page directly." do

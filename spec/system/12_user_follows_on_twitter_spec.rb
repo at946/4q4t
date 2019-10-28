@@ -1,8 +1,8 @@
 feature "12_user_follows_on_twitter", type: :system, js: true do
 
-  before :each do
-    @team = Team.create(name: "ほげほげプロジェクト")
-    @member = @team.members.create(name: "John Smith", ans_q1: ["ANS-Q1"], ans_q2: ["ANS-Q2"], ans_q3: ["ANS-Q3"], ans_q4: ["ANS-Q4"])
+  background do    
+    @team = create(:team)
+    @member = create(:member, team: @team)
   end
 
   scenario "User moves to my twitter account when user clicks on twitter icon on footer on top page." do

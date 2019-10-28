@@ -58,6 +58,6 @@ class MembersController < ApplicationController
 
     #  Strong parameters
     def member_params
-      params.require(:member).permit(:team_id, :name, ans_q1: [], ans_q2: [], ans_q3: [], ans_q4: [])
+      params.require(:member).permit(:team_id, :name, :role, ans_q1: [], ans_q2: [], ans_q3: [], ans_q4: [])
     end
 end

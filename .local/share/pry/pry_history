@@ -167,3 +167,21 @@ Team.all
 Member.all
 Team.all
 quit
+Member.all
+Member.last
+Member.last.ans_q1
+Member.last.ans_q1.nil?
+Member.last.ans_q1.blank?
+qwuit
+quit
+show-routes
+show-model Team
+show-model Members
+show-model Member
+quit
+Team.all.order(created_at: :DESC)
+quit
+Team.all
+Time.now
+Team.all
+quit

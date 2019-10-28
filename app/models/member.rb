@@ -1,6 +1,6 @@
 class Member < ApplicationRecord
 
-  # Default order
+  # 検索表示はデフォルト作成日昇順
   default_scope -> { order(:created_at) }
 
   # Associations
@@ -9,14 +9,11 @@ class Member < ApplicationRecord
   # Callbacks
   before_validation do
     delete_space(self.name)
+    delete_space(self.role)
     format_ans(self.ans_q1)
     format_ans(self.ans_q2)
     format_ans(self.ans_q3)
     format_ans(self.ans_q4)
-  end
-
-  before_save do
-    delete_space(self.name)
   end
 
   before_create :set_uid

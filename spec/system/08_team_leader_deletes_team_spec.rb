@@ -1,8 +1,8 @@
 feature "08_team_leader_deletes_team", type: :system, js: true do
 
-  before :each do
-    @team = Team.create(name: "ほげほげプロジェクト")
-    @member = @team.members.create(name: "John Smith", ans_q1: ["ANS1-Q1"], ans_q2: ["ANS-Q2"], ans_q3: ["ANS-Q3"], ans_q4: ["ANS-Q4"])
+  background do
+    @team = create(:team)
+    @member = create(:member, team: @team)
   end
 
   scenario "User can open 'team delete confirmation dialog' when user clicks on 'delete' button on edit team page." do
