@@ -30,7 +30,10 @@
 yarn-debug.log*
 .yarn-integrity
 
-.vscode/
 .ash_history
-.local/
 .viminfo
+
+/.config
+/.local
+/.pki
+/.vscode
