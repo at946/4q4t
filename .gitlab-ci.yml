@@ -7,6 +7,7 @@ rspec:
   stage: test
   script:
     - docker-compose build
+    - docker-compose run web yarn install --check-files
     - docker-compose run web rails db:create
     - docker-compose run web rails db:migrate
     - docker-compose run web rspec
