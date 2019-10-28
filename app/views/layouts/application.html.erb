@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>4Q4T -Easy Drucker Exercise Tool-</title>
+    <% if @team.present? && @team.name.present? %>
+      <% @title = "#{@team.name} | 4Q4T - Easy Drucker Exercise Tool" %>
+    <% else %>
+      <% @title = "4Q4T - Easy Drucker Exercise Tool" %>
+    <% end %>
+    <title><%= @title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <!-- metatag -->
@@ -16,7 +21,7 @@
 
     <!-- OGP tag -->
     <meta property="og:url"         content=<%= root_url %>>
-    <meta property="og:title"       content="4Q4T -Easy Drucker Exercise Tool-">
+    <meta property="og:title"       content='<%= @title %>'>
     <meta property="og:type"        content="website">
     <meta property="og:description" content="4Q4Tは、チームメンバー同士の期待を可視化し確認しあうためのツールです。『ドラッカー風エクササイズ』というチームビルディングに効果的なワークショップを気軽に実践することができます。<br>「チームが期待に応えてくれない…」「チームの期待に応えられていないかも…」そんな悩みを解消するために、チーム全員で取り組んでみてください。">
     <meta property="og:image"       content=<%= image_url("ogp.png") %>>
