@@ -19,10 +19,5 @@ services:
       - 3000:3000
     depends_on:
       - db
-      - chrome
-
-  chrome:
-    image: selenium/standalone-chrome-debug:latest
-    container_name: 4q4t_chrome
-    ports:
-      - 5900:5900
+    environment:
+      - RAILS_SYSTEM_TESTING_SCREENSHOT=inline

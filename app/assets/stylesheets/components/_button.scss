@@ -16,4 +16,8 @@
   &:hover, &:focus {
     @extend .hover-shadow;
   }
+
+  &:disabled {
+    @extend .bg-grey;
+  }
 }

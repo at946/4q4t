@@ -9,8 +9,12 @@
     </div>
   <% end %>
 
-  <div class="mb-3">
+  <div class="mb-1">
     <%= form.text_field :name, class: "input", placeholder: Member.human_attribute_name(:name), autofocus: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :role, class: "input", placeholder: Member.human_attribute_name(:role) %>
   </div>
 
   <div class="mb-2">
@@ -62,9 +66,9 @@
   </div>
 
   <% if create %>
-    <button type="submit" id="create_member_button" class="button bg-accent">Answer</button>
+    <%= button_tag "Answer", type: :submit, id: :create_member_button, class: "button bg-accent", data: { disable_with: "Creating..." } %>
   <% else %>
-    <button type="submit" id="update_member_button" class="button mb-2 bg-accent">Update</button><br>
+    <%= button_tag "Update", type: :submit, id: :update_member_button, class: "button bg-accent mb-2", data: { disable_with: "Updating..." }  %><br />
     <%= link_to "Delete", destroy_member_path(member), method: :delete, id: "delete_member_button", class: "text-alert", data: { confirm: "メンバーの削除は元に戻すことができません。本当に削除しますか？" } %>
   <% end %>
 <% end %>

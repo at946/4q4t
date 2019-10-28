@@ -1,8 +1,10 @@
 feature "05_team_leader_rename_team", type: :system, js: true do
 
-  before :each do
-    @team = Team.create(name: "ほげほげプロジェクト")
-    @member = @team.members.create(name: "名無しの権兵衛", ans_q1: [], ans_q2: [], ans_q3: [], ans_q4: [])
+  background do
+    @team = create(:team)
+    @member = create(:member, team: @team)
+    @member_v2 = build(:member2)
+    @member_v2_space = build(:member2_space)
 end
 
   scenario "Current name is filled in on edit member page." do
@@ -32,14 +34,15 @@ end
     new_name = "John Smith"
 
     visit edit_member_path @member
-    fill_in :member_name, with: new_name_space
+    fill_in :member_name, with: @member_v2_space.name
     click_on :update_member_button
 
     @member.reload
+
     expect(current_path).to eq team_path @team
-    expect(@member.name).to eq new_name
-    expect(page).to have_text new_name
-    expect(page).not_to have_text new_name_space
+    expect(@member.name).to eq @member_v2.name
+    expect(page).to have_text @member_v2.name
+    expect(page).not_to have_text @member_v2_space.name
   end
 
 end

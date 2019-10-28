@@ -1,15 +1,8 @@
 feature "04_team_member_leaves_team", type: :system, js: true do
 
-  before :each do
-    @team = Team.create(name: "ほげほげプロジェクト")
-    @member = Member.create(
-      team: @team,
-      name: "名無しの　権兵衛",
-      ans_q1: ["sample answer1", "サンプルアンサー１", "Sampleアンサー1"],
-      ans_q2: ["sample answer2", "サンプルアンサー２", "Sampleアンサー2"],
-      ans_q3: ["sample answer3", "サンプルアンサー３", "Sampleアンサー3"],
-      ans_q4: ["sample answer4", "サンプルアンサー４", "Sampleアンサー4"]
-    )
+  background do
+    @team = create(:team)
+    @member = create(:member, team: @team)
   end
 
   scenario "User can move edit member page when user clicks on edit icon on member card on show team page." do

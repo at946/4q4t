@@ -14,9 +14,9 @@
   </div>
 
   <% if new %>
-    <button id="team_create_button" class="button bg-accent">Create</button>
+    <%= button_tag "Create", id: "create_team_button", class: "button bg-accent", data: { disable_with: "Creating..." } %>
   <% else %>
-    <button id="team_update_button" class="button bg-accent mb-2">Update</button><br />
+    <%= button_tag "Update", id: "update_team_button", class: "button bg-accent mb-2", data: { disable_with: "Updating..." } %><br />
     <%= link_to "Delete", destroy_team_path(team), method: :delete, id: "delete_team_button", class: "text-alert", data: { confirm: "チームの削除は元に戻すことができません。また、チームの全てのメンバーも削除されます。本当に削除しますか？" } %>
   <% end %>
 
