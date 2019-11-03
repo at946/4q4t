@@ -58,6 +58,11 @@ RSpec.configure do |config|
     driven_by :headless_chrome
   end
 
+  config.before(:all) do
+    # テスト実行前にscreenshotを削除する
+    FileUtils.rm_rf(Rails.root.join('tmp', 'screenshots'), secure: true)
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
