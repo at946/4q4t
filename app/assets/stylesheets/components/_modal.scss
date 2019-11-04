@@ -1,0 +1,34 @@
+@import 'container';
+@import 'display';
+@import 'mp';
+
+#modal_overlay {
+  z-index: 1;
+  @extend .hide;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal {
+  z-index: 2; 
+  @extend .container;
+  @extend .hide;
+  @extend .p-1;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+}
+
+.modal-open, .modal-close {
+  cursor: pointer;
+}
+
+#how_to_use_modal {
+  max-width: 640px;
+}
