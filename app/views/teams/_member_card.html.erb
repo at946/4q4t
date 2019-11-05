@@ -1,11 +1,15 @@
-<div class="card card-primary-left mb-1">
-  <% if answers.present? %>
-    <ol class="ml-1">
-    <% answers.each do |ans| %>
-      <li><%= ans %></li>
+<div class="f-item-12 f-item-pc-6 p-1">
+  <div class="card card-primary-left mb-1 h-100">
+    <p class="mb-1"><b><%= question %></b></p>
+    <hr class="border-primary" />
+    <% if answers.present? %>
+      <ol class="ml-1">
+      <% answers.each do |ans| %>
+        <li><%= ans %></li>
+      <% end %>
+      </ol>
+    <% else %>
+      <p class="text-left">No answer.</p>
     <% end %>
-    </ol>
-  <% else %>
-    <p class="text-left">No answer.</p>
-  <% end %>
+  </div>
 </div>

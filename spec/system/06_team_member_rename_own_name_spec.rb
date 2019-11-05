@@ -1,4 +1,4 @@
-feature "05_team_leader_rename_team", type: :system, js: true do
+feature "06_team_member_rename_own_name", type: :system, js: true do
 
   background do
     @team = create(:team)
@@ -13,7 +13,7 @@ end
   end
 
   scenario "User finds error message when user clicks on 'update' button with no input for name on edit member page." do
-    msg = "Name can't be blank."
+    msg = "Name を入力してください。"
 
     visit edit_member_path @member
     fill_in :member_name, with: ""

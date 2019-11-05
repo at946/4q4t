@@ -10,18 +10,14 @@
   </h2>
   <p style="overflow: scroll;" class="text-secondary"><%= request.url %></p>
   <p class="mb-2" style="color: #AAA;">URLを共有してメンバーを招待しましょう！</p>
-  <%= link_to "Answer 4 questions", new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-3 bg-accent' %>
+  <%= link_to exercise_path(@team), id: :start_exercise_button, class: "button bg-primary mb-2" do %>
+    <span class="text-middle"><i class="material-icons">play_arrow</i>Start exercise</span>
+  <% end %>
+  <br>
 
-  <div class="px-1">
-    <div class="card card-accent-left mb-3">
-      <ol class="ml-0 ol-questions">
-        <li>自分は何が得意なのか？</li>
-        <li>自分はどんなふうに仕事をするか？</li>
-        <li>自分が大切に思う価値は何か？</li>
-        <li>チームメンバーは自分にどんな成果を期待してるか？</li>
-      </ol>
-    </div>
-  </div>
+  <%= link_to new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-1 bg-accent' do %>
+    <span class="text-middle"><i class="material-icons">add</i>Member</span>
+  <% end %>
 
   <div class="f-container">
     <% @members.each do |member| %>
@@ -40,10 +36,12 @@
               <i class="material-icons text-accent edit-icon">edit</i>
             <% end %>
           </div>
-          <%= render 'member_card', answers: member.ans_q1 %>
-          <%= render 'member_card', answers: member.ans_q2 %>
-          <%= render 'member_card', answers: member.ans_q3 %>
-          <%= render 'member_card', answers: member.ans_q4 %>
+          <div class="f-container">
+            <%= render 'member_card', question: "Q1. #{t :q1}", answers: member.ans_q1 %>
+            <%= render 'member_card', question: "Q2. #{t :q2}", answers: member.ans_q2 %>
+            <%= render 'member_card', question: "Q3. #{t :q3}", answers: member.ans_q3 %>
+            <%= render 'member_card', question: "Q4. #{t :q4}", answers: member.ans_q4 %>    
+          </div>
         </div>
       </div>
   <% end %>

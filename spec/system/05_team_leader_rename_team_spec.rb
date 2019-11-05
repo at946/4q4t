@@ -18,7 +18,7 @@ feature "05_team_leader_rename_team", type: :system, js: true do
   end
     
   scenario "User finds error message when user click on 'update' button without input 'team name' on edit team page." do
-    msg = "Team name can't be blank."
+    msg = "Team name を入力してください。"
 
     visit edit_team_path @team
     fill_in :team_name, with: ""

@@ -9,7 +9,7 @@
     <div>
       <ul>
         <% member.errors.full_messages.each do |message| %>
-          <li class="text-alert"><%= message %>.</li>
+          <li class="text-alert"><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -25,7 +25,7 @@
 
   <div class="mb-2">
     <div class="card card-primary">
-      <p>Q1. 自分は何が得意なのか？</p>
+      <p>Q1. <%= t :q1 %></p>
       <div class="mt-1">
         <%= form.text_field :ans_q1, name: "member[ans_q1][]", value: member.ans_q1.to_a[0], id: :member_ans_q1_1, class: 'input mb-1' %>
         <%= form.text_field :ans_q1, name: "member[ans_q1][]", value: member.ans_q1.to_a[1], id: :member_ans_q1_2, class: 'input mb-1' %>
@@ -36,7 +36,7 @@
 
   <div class="mb-2">
     <div class="card card-primary">
-      <p>Q2. 自分はどんなふうに仕事をするか？</p>
+      <p>Q2. <%= t :q2 %></p>
       <div class="mt-1">
         <%= form.text_field :ans_q2, name: "member[ans_q2][]", value: member.ans_q2.to_a[0], id: :member_ans_q2_1, class: 'input mb-1' %>
         <%= form.text_field :ans_q2, name: "member[ans_q2][]", value: member.ans_q2.to_a[1], id: :member_ans_q2_2, class: 'input mb-1' %>
@@ -47,7 +47,7 @@
   
   <div class="mb-2">
     <div class="card card-primary">
-      <p>Q3. 自分が大切に思う価値は何か？</p>
+      <p>Q3. <%= t :q3 %></p>
       <div class="mt-1">
         <%= form.text_field :ans_q3, name: "member[ans_q3][]", value: member.ans_q3.to_a[0], id: :member_ans_q3_1, class: 'input mb-1' %>
         <%= form.text_field :ans_q3, name: "member[ans_q3][]", value: member.ans_q3.to_a[1], id: :member_ans_q3_2, class: 'input mb-1' %>
@@ -58,7 +58,7 @@
 
   <div class="mb-2">
     <div class="card card-primary">
-      <p>Q4. チームメンバーは自分にどんな成果を期待してるか？</p>
+      <p>Q4. <%= t :q4 %></p>
       <div class="mt-1">
         <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: member.ans_q4.to_a[0], id: :member_ans_q4_1, class: 'input mb-1' %>
         <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: member.ans_q4.to_a[1], id: :member_ans_q4_2, class: 'input mb-1' %>
@@ -72,7 +72,7 @@
   </div>
 
   <% if create %>
-    <%= button_tag "Answer", type: :submit, id: :create_member_button, class: "button bg-accent", data: { disable_with: "Creating..." } %>
+    <%= button_tag "Create", type: :submit, id: :create_member_button, class: "button bg-accent", data: { disable_with: "Creating..." } %>
   <% else %>
     <%= button_tag "Update", type: :submit, id: :update_member_button, class: "button bg-accent mb-2", data: { disable_with: "Updating..." }  %><br />
     <%= link_to "Delete", destroy_member_path(member), method: :delete, id: "delete_member_button", class: "text-alert", data: { confirm: "メンバーの削除は元に戻すことができません。本当に削除しますか？" } %>

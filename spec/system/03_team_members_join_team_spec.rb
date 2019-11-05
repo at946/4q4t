@@ -113,7 +113,7 @@ feature "03_team_members_join_team", type: :system, js: true do
   end
 
   scenario "User can find error message on create member page when user clicks on 'answer' button without 'name'." do
-    error_message = "Name can't be blank"
+    error_message = "Name を入力してください。"
     expect(Member.all.count).to eq 0
 
     visit new_member_path(team: @team)

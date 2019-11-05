@@ -25,4 +25,4 @@ function showSlide(n) {
   $(".slideshow-nav").show()
   if (n < 2) { $(".slideshow-nav.prev").hide() }
   if (n > $(".slide").length - 1) { $(".slideshow-nav.next").hide() }
-};
+}

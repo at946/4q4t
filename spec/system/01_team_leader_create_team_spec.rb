@@ -28,7 +28,7 @@ feature "01_team_leader_create_team", type: :system, js: true do
   end
 
   scenario "User find the error message on create team page when user click 'create' button with no input for team name." do
-    error_message = "Team name can't be blank"
+    error_message = "Team name を入力してください。"
     visit new_team_path
     fill_in :team_name, with: ""
     click_on :create_team_button
