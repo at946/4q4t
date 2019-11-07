@@ -1,15 +1,27 @@
+<%# return_path is defined %>
+<% if new %>
+  <% return_path = root_path %>
+<% else %>
+  <% return_path = team_path team %>
+<% end %>
+
 <%= form_with(model: team, url: url, local: true) do |form| %>
+  <div class="text-left">
+    <%= link_to return_path, id: :return_icon do %>
+      <i class="material-icons">arrow_back</i>
+    <% end %>
+  </div>
   <% if team.errors.any? %>
-    <div class="mb-2">
+    <div>
       <ul>
         <% team.errors.full_messages.each do |message| %>
-          <li class="text-alert"><%= message %>.</li>
+          <li class="text-alert"><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="mb-3">
+  <div class="mt-2 mb-3">
     <%= form.text_field :name, class: "input", placeholder: Team.human_attribute_name(:name), autofocus: true %>
   </div>
 

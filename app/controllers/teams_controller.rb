@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy]
+  before_action :set_team, only: [:show, :edit, :update, :destroy, :exercise]
   before_action :set_noindex
 
   # GET /teams/:uid
@@ -41,6 +41,10 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     redirect_to root_path
+  end
+
+  def exercise
+    @members = @team.members.shuffle
   end
 
   private

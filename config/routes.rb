@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # Team path
-  get     'teams/new',        to: 'teams#new',      as: 'new_team'
-  post    'teams/new',        to: 'teams#create',   as: 'create_team'
-  get     'teams/:uid/edit',  to: 'teams#edit',     as: 'edit_team'
-  patch   'teams/:uid/edit',  to: 'teams#update',   as: 'update_team'
-  get     'teams/:uid',       to: 'teams#show',     as: 'team'
-  delete  'teams/:uid',       to: 'teams#destroy',  as: 'destroy_team'
+  get     'teams/new',            to: 'teams#new',      as: 'new_team'
+  post    'teams/new',            to: 'teams#create',   as: 'create_team'
+  get     'teams/:uid/edit',      to: 'teams#edit',     as: 'edit_team'
+  patch   'teams/:uid/edit',      to: 'teams#update',   as: 'update_team'
+  get     'teams/:uid',           to: 'teams#show',     as: 'team'
+  delete  'teams/:uid',           to: 'teams#destroy',  as: 'destroy_team'
+  get     'teams/:uid/exercise',  to: 'teams#exercise', as: 'exercise'
 
   # Member path
   get     'members/new',        to: 'members#new',      as: 'new_member'

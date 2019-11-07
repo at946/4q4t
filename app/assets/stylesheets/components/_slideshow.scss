@@ -1,0 +1,27 @@
+@import 'display';
+
+* { box-sizing: border-box; }
+
+.slideshow {
+  position: relative;
+}
+
+.slide {
+  @extend .hide;
+}
+
+.slideshow-nav {
+  cursor: pointer;
+  position: absolute;  
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 2rem!important;
+  
+  &.prev {
+    left: 0;
+  }
+
+  &.next {
+    right: 0;
+  }
+}

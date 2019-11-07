@@ -1,4 +1,7 @@
-<div class="container my-3">
+<div class="container my-2">
+  <div class="text-right">
+    <i id="how_to_use_icon" class="material-icons modal-open" data-target="how_to_use_modal">help_outline</i>
+  </div>
   <h2>
     <%= @team.name %>
     <%= link_to edit_team_path(@team), id: :edit_team_icon do %>
@@ -7,18 +10,14 @@
   </h2>
   <p style="overflow: scroll;" class="text-secondary"><%= request.url %></p>
   <p class="mb-2" style="color: #AAA;">URLを共有してメンバーを招待しましょう！</p>
-  <%= link_to "Answer 4 questions", new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-3 bg-accent' %>
+  <%= link_to exercise_path(@team), id: :start_exercise_button, class: "button bg-primary mb-2" do %>
+    <span class="text-middle"><i class="material-icons">play_arrow</i>Start exercise</span>
+  <% end %>
+  <br>
 
-  <div class="px-1">
-    <div class="card card-accent-left mb-3">
-      <ol class="ml-0 ol-questions">
-        <li>自分は何が得意なのか？</li>
-        <li>自分はどんなふうに仕事をするか？</li>
-        <li>自分が大切に思う価値は何か？</li>
-        <li>チームメンバーは自分にどんな成果を期待してるか？</li>
-      </ol>
-    </div>
-  </div>
+  <%= link_to new_member_path(team: @team.uid), id: 'answer_button', class: 'button mb-1 bg-accent' do %>
+    <span class="text-middle"><i class="material-icons">add</i>Member</span>
+  <% end %>
 
   <div class="f-container">
     <% @members.each do |member| %>
@@ -37,13 +36,30 @@
               <i class="material-icons text-accent edit-icon">edit</i>
             <% end %>
           </div>
-          <%= render 'member_card', answers: member.ans_q1 %>
-          <%= render 'member_card', answers: member.ans_q2 %>
-          <%= render 'member_card', answers: member.ans_q3 %>
-          <%= render 'member_card', answers: member.ans_q4 %>
+          <div class="f-container">
+            <%= render 'member_card', question: "Q1. #{t :q1}", answers: member.ans_q1 %>
+            <%= render 'member_card', question: "Q2. #{t :q2}", answers: member.ans_q2 %>
+            <%= render 'member_card', question: "Q3. #{t :q3}", answers: member.ans_q3 %>
+            <%= render 'member_card', question: "Q4. #{t :q4}", answers: member.ans_q4 %>    
+          </div>
         </div>
       </div>
   <% end %>
   </div>
 
+</div>
+
+<%# modal %>
+<div id="modal_overlay"></div>
+<div id="how_to_use_modal" class="modal bg-grey">
+  <div class="text-right"><i id="close_icon" class="material-icons modal-close">close</i></div>
+  <div class="slideshow">
+    <%# how to use card %>
+    <%= render 'how_to_use_card', title: "1. Answer", image: "how_to_use_1.png", description: "それぞれ４つの質問に回答します。" %>
+    <%= render 'how_to_use_card', title: "2. Presentation", image: "how_to_use_2.png", description: "１人ずつ自分の回答を発表します。" %>
+    <%= render 'how_to_use_card', title: "3. Feedback", image: "how_to_use_3.png", description: "フィードバックし合います。" %>
+    <%# navigation %>
+    <i id="slide_prev_icon" class="material-icons slideshow-nav prev">chevron_left</i>
+    <i id="slide_next_icon" class="material-icons slideshow-nav next">chevron_right</i>
+  </div>
 </div>

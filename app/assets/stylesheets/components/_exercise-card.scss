@@ -1,0 +1,25 @@
+.exercise-nav-container {
+  position: relative;
+
+  .exercise-nav {
+    position: absolute;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    animation: infinite;
+
+    &.prev {
+      left:  0;
+      &:hover {
+        transform: translateX(-1rem);
+      }
+    }
+    &.next {
+      right: 0;
+      &:hover {
+        transform: translateX(1rem);
+      }
+    }
+  }
+}

@@ -26,35 +26,27 @@
 
     <div class="f-container">
       <%= 
-        render 'how_to_use_card', 
-        title: "1. Make a team", 
-        text: 
-          "まずはチームを作成します。チーム名を登録するだけで簡単にチームスペースを作ることができます。<br />
-          チームスペースのURLを共有するだけでメンバーもチームスペースにアクセスできます。"
-      %>
-
-      <%= 
         render 'how_to_use_card',
-        title: "2. Answer questions",
+        title: "1. Answer",
+        image: "how_to_use_1.png",
         text:
-          "チームスペースにアクセスできたら、それぞれで4つの質問に答えましょう。<br />
-          あまり時間をかけず、思ったことをそのまま記入していきます。"
+          "各々4つの質問に答えます。<br>深く悩みすぎず思ったままに！"
       %>
 
       <%=
         render 'how_to_use_card',
-        title: "3. Discussion",
+        title: "2. Presentation",
+        image: "how_to_use_2.png",
         text: 
-          "チームで集まって一人一人の答えを議論していきましょう。<br>
-          特に4つ目の質問は期待です。ここをしっかり合わせましょう！"
+          "１人ずつ自分の回答を発表します。<br>自分の気持ちを素直にぶつけます！"
       %>
 
       <%=
         render 'how_to_use_card',
-        title: "4. That's all",
+        title: "3. Feedback",
+        image: "how_to_use_3.png",
         text:
-          "メンバー全員の考え方や期待が可視化されて、チームとして活動しやすくなっているでしょう。<br />
-          1回作って終わりではなく定期的にアップデートしましょう。"
+          "フィードバックし合います。<br>フィードバックから期待をすり合わせます！"
       %>
     </div>
   </div>

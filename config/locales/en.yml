@@ -30,7 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  q1: "What am I good at?"
+  q2: "How do I perform?"
+  q3: "What do I value?"
+  q4: "What contribution can be expected from me on this project?"
 
   activerecord:
     models:

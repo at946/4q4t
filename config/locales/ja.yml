@@ -1,0 +1,23 @@
+ja:
+  q1: "自分は何が得意なのか？"
+  q2: "自分はどんなふうに仕事をするか？"
+  q3: "自分が大切に思う価値は何か？"
+  q4: "チームメンバーは自分にどんな成果を期待してるか？"
+
+  activerecord:
+    errors:
+      messages:
+        blank: "を入力してください。"
+    models:
+      team: Team
+      member: Member
+    attributes:
+      team:
+        name: Team name
+      member:
+        name: Name
+        role: Role
+        ans_q1: Answer for Q1
+        ans_q2: Answer for Q2
+        ans_q3: Answer for Q3
+        ans_q4: Answer for Q4
