@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
   # GET /teams/new
   def new
     @team = Team.new
+    render layout: 'application'
   end
 
   # POST /teams/new

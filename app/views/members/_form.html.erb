@@ -23,7 +23,7 @@
     <%= form.text_field :role, class: "input", placeholder: Member.human_attribute_name(:role) %>
   </div>
 
-  <div class="mb-2">
+  <!-- <div class="mb-2">
     <div class="card card-primary">
       <p>Q1. <%= t :q1 %></p>
       <div class="mt-1">
@@ -65,7 +65,7 @@
         <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: member.ans_q4.to_a[2], id: :member_ans_q4_3, class: 'input mb-1' %>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <div>
     <%= form.hidden_field :team_id %>

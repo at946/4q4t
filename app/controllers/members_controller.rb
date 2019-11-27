@@ -1,22 +1,25 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:edit, :update, :destroy]
+  before_action :set_member,  only: [:edit, :update, :destroy]
+  before_action :set_team,    only: [:edit, :update, :destroy]
   before_action :set_noindex
+
+  layout 'teams'
 
   # GET /members/new
   def new
     begin
-      team = Team.find(params[:team])
+      @team = Team.find(params[:team])
     rescue => exception
       flash[:error] = "Team is not found."
       render template: "common/error"
     end
-    @member = Member.new
-    @member.team = team
+    @member = Member.new(team_id: @team.id)
   end
 
   # POST /members/new
   def create
     @member = Member.new(member_params)
+    @team = @member.team
 
     if @member.save
       redirect_to team_path(@member.team)
@@ -54,6 +57,10 @@ class MembersController < ApplicationController
         flash[:error] = "Member is not found."
         render template: 'common/error'
       end
+    end
+
+    def set_team
+      @team = @member.team
     end
 
     #  Strong parameters

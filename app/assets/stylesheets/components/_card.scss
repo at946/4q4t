@@ -14,6 +14,13 @@
   }
 }
 
+.card-hover {
+  transition-duration: .5s;
+  &:hover {
+    @extend .hover-shadow;
+  }
+}
+
 // Tag
 $positions: "left", "right";
 @each $type, $color in $type-color {

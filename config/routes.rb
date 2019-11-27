@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get     'members/:uid',       to: 'members#show',     as: 'member'
   delete  'members/:uid',       to: 'members#destroy',  as: 'destroy_member'
 
+  # Drucker Exercise path
+  get 'druckers',           to: 'druckers#index', as: 'druckers'
+  get 'druckers/:id/edit',  to: 'druckers#edit',  as: 'edit_drucker'
+
   # Common path
   get 'terms',    to: 'common#tos', as: 'tos'
   get 'privacy',  to: 'common#pp',  as: 'pp'

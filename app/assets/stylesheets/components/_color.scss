@@ -6,7 +6,7 @@ $type-color: (
   'alert': $alert-color,
   'black': $black,
   'white': white,
-  'grey': #e8e8e8
+  'grey': #f8f9f9
 );
 
 @each $type, $color in $type-color {

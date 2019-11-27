@@ -11,6 +11,7 @@
   @extend .p-1;
   @extend .text-black;
   transition: all 0.5s;
+  border-bottom: solid 1px $primary-color;
 
   &:focus {
     @extend .bg-primary;

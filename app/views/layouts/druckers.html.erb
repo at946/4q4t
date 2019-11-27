@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if @team.present? && @team.name.present? %>
+      <% @title = "#{@team.name} | 4Q4T - Easy Drucker Exercise Tool" %>
+    <% else %>
+      <% @title = "4Q4T - Easy Drucker Exercise Tool" %>
+    <% end %>
+    <title><%= @title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- metatag -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="4Q4Tは、チームメンバー同士の期待を可視化し確認しあうためのツールです。『ドラッカー風エクササイズ』というチームビルディングに効果的なワークショップを気軽に実践することができます。<br>「チームが期待に応えてくれない…」「チームの期待に応えられていないかも…」そんな悩みを解消するために、チーム全員で取り組んでみてください。">
+    <% if @noindex %>
+    <meta name="robots" content="noindex,nofollow">
+    <% end %>
+    <meta name="format-detection" content="email=no,telephone=no,address=no">
+
+    <!-- OGP tag -->
+    <meta property="og:url"         content=<%= root_url %>>
+    <meta property="og:title"       content='<%= @title %>'>
+    <meta property="og:type"        content="website">
+    <meta property="og:description" content="4Q4Tは、チームメンバー同士の期待を可視化し確認しあうためのツールです。『ドラッカー風エクササイズ』というチームビルディングに効果的なワークショップを気軽に実践することができます。<br>「チームが期待に応えてくれない…」「チームの期待に応えられていないかも…」そんな悩みを解消するために、チーム全員で取り組んでみてください。">
+    <meta property="og:image"       content=<%= image_url("ogp.png") %>>
+    <meta name="twitter:card"       content="summary_large_image">
+    <meta name="twitter:site"       content="@at_946">
+    <meta property="og:site_name"   content="4Q4T -Easy Drucker Exercise Tool-">
+    <meta property="og:locale"      content="ja_JP">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# material icons %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%# font awesome %>
+    <script src="https://kit.fontawesome.com/d49972a82c.js" crossorigin="anonymous"></script>
+
+    <% if Rails.env.production? %>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M4ZPCGH');</script>
+    <!-- End Google Tag Manager -->
+    <% end %>
+  </head>
+
+  <body>
+    <% if Rails.env.production? %>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4ZPCGH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <% end %>
+
+    <header class="header">
+      <%= link_to "4Q4T", root_path, id: :header_logo, class: "header-logo ml-1" %>
+    </header>
+
+    <div style="display: grid; grid-template-columns: 200px 1fr; min-height: calc(100vh - 4rem);">
+      <div style="border-right: solid 1px #CDCECF;">
+        <ul class="ml-1">
+          <li class="h3 my-1 text-primary"><%= @team.name %></li>
+          <li class="my-1"><%= link_to "Team & Members", team_path(@team), class: "text-black" %></li>
+          <li class="my-1"><b><%= link_to "Drucker Exercise", druckers_path(team: @team), class: "text-accent" %></b></li>
+        </ul>
+      </div>
+      <div class="bg-grey"><%= yield %></div>
+    </div>
+
+    <footer class="footer">
+      <ul>
+        <li class="mr-1" style="display: inline-block;"><%= link_to "terms", tos_path, id: :terms_link, class: "text-white" %></li>
+        <li style="display: inline-block;"><%= link_to "privacy", pp_path, id: :pp_link, class: "text-white" %></li>
+      </ul>
+      <p>(c) at. <a id="twitter_icon" href="https://twitter.com/at_946" target="_blank"><i class="fab fa-twitter" style="color: #1da1f2;"></i></a></p>
+    </footer>
+  </body>
+</html>

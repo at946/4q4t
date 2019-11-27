@@ -1,0 +1,40 @@
+<div class="p-1 bg-white" style="border-bottom: solid 1px #CDCECF;">
+  <h3>
+    Drucker Exercise
+    <i id="how_to_use_icon" class="material-icons modal-open" data-target="how_to_use_modal" style="vertical-align: middle;">help_outline</i>
+  </h3>
+</div>
+
+<div class="container mb-5">
+  <%= link_to exercise_path(@team), id: :start_exercise_button, class: "button bg-primary mt-2" do %>
+    <span class="text-middle"><i class="material-icons">play_arrow</i>Start Exercise</span>
+  <% end %>
+
+  <% @members.each do |member| %>
+    <div class="card card-hover h-100 member-card my-2 bg-white">
+      <h3><%= member.name %></h3>
+      <p><%= member.role %></p>
+      <div class="f-container">
+        <%= render 'member_card', question: "Q1. #{t :q1}", answers: member.ans_q1 %>
+        <%= render 'member_card', question: "Q2. #{t :q2}", answers: member.ans_q2 %>
+        <%= render 'member_card', question: "Q3. #{t :q3}", answers: member.ans_q3 %>
+        <%= render 'member_card', question: "Q4. #{t :q4}", answers: member.ans_q4 %>    
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%# modal %>
+<div id="modal_overlay"></div>
+<div id="how_to_use_modal" class="modal bg-grey">
+  <div class="text-right"><i id="close_icon" class="material-icons modal-close">close</i></div>
+  <div class="slideshow">
+    <%# how to use card %>
+    <%= render 'how_to_use_card', title: "1. Answer", image: "how_to_use_1.png", description: "それぞれ４つの質問に回答します。" %>
+    <%= render 'how_to_use_card', title: "2. Presentation", image: "how_to_use_2.png", description: "１人ずつ自分の回答を発表します。" %>
+    <%= render 'how_to_use_card', title: "3. Feedback", image: "how_to_use_3.png", description: "フィードバックし合います。" %>
+    <%# navigation %>
+    <i id="slide_prev_icon" class="material-icons slideshow-nav prev">chevron_left</i>
+    <i id="slide_next_icon" class="material-icons slideshow-nav next">chevron_right</i>
+  </div>
+</div>
