@@ -60,6 +60,3 @@ gem 'awesome_print'
 
 # 500エラーをSlackに通知する
 gem 'slack_500'
-
-# Dump取得
-gem 'seed_dump'

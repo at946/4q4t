@@ -10,10 +10,10 @@ class Member < ApplicationRecord
   before_validation do
     delete_space(self.name)
     delete_space(self.role)
-    # format_ans(self.ans_q1)
-    # format_ans(self.ans_q2)
-    # format_ans(self.ans_q3)
-    # format_ans(self.ans_q4)
+    format_ans(self.ans_q1)
+    format_ans(self.ans_q2)
+    format_ans(self.ans_q3)
+    format_ans(self.ans_q4)
   end
 
   before_create :set_uid
@@ -28,10 +28,11 @@ class Member < ApplicationRecord
   private
     # delete space & nil items
     def format_ans(array)
-      exit if array.nil?
-      array.reject!(&:blank?)
-      array.each do |ans|
-        delete_space(ans)
+      if array.present?
+        array.reject!(&:blank?)
+        array.each do |ans|
+          delete_space(ans)
+        end
       end
     end
 

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  layout 'side_menu_content'
+
   # noindexを貼りたいページで実行する。"before_action :set_noindex"
   def set_noindex
     @noindex = true

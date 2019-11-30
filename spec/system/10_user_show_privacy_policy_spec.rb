@@ -36,7 +36,7 @@ feature "10_user_show_privacy_policy", type: :system, js: true do
   end
 
   scenario "User moves to privacy policy page when user clicks on privacy link on footer on create member page." do
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     click_on :pp_link
     expect(current_path).to eq pp_path
   end
@@ -57,6 +57,24 @@ feature "10_user_show_privacy_policy", type: :system, js: true do
     visit pp_path
     click_on :pp_link
     expect(current_path).to eq pp_path
+  end
+
+  scenario "A user moves to privacy policy page when the user clicks on the privacy link on the footer on the druckers page." do
+    visit druckers_path @team
+    click_on :pp_link
+    expect(page).to have_current_path pp_path
+  end
+
+  scenario "A user moves to the privacy policy page when the user clicks on the privacy link on the footer on the edit drucker page." do
+    visit edit_drucker_path @member
+    click_on :pp_link
+    expect(page).to have_current_path pp_path
+  end
+
+  scenario "A user moves to the privacy policy page when the user clicks on the privacy link on the footer on the drucker exercise page." do
+    visit drucker_exercise_path @team
+    click_on :pp_link
+    expect(page).to have_current_path pp_path
   end
 
 end

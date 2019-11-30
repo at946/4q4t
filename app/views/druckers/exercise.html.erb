@@ -1,0 +1,24 @@
+<div class="container mt-2 mb-2">
+    <p><span id="present_count" class="h3">1</span> / <span id="members_count" class="h3"><%= @members.count %></span></p>
+    <% @members.each do |member| %>
+      <div class="exercise-card">
+        <div class="mb-2">
+          <h1><%= member.name %></h1>
+          <p><%= member.role %></p>
+        </div>
+  
+        <div class="f-container">
+          <%= render 'member_card', question: "Q1. #{t :q1}", answers: member.ans_q1 %>
+          <%= render 'member_card', question: "Q2. #{t :q2}", answers: member.ans_q2 %>
+          <%= render 'member_card', question: "Q3. #{t :q3}", answers: member.ans_q3 %>
+          <%= render 'member_card', question: "Q4. #{t :q4}", answers: member.ans_q4 %>    
+        </div>
+      </div>
+    <% end %>
+  
+    <div class="exercise-nav-container my-2">
+      <i id="exercise_prev_icon" class="material-icons text-accent exercise-nav prev">navigate_before</i>
+      <%= link_to "FINISH", druckers_path(@team), id: :return_button, class: "button bg-accent" %>
+      <i id="exercise_next_icon" class="material-icons text-accent exercise-nav next">navigate_next</i>
+    </div>
+  </div>

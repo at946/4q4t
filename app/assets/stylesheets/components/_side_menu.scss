@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'color';
+
+#grid_container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: calc(100vh - 4rem);
+}
+
+#sidemenu_container {
+  border-right: solid 1px $border-grey;
+}
+
+.sidemenu-item {
+  @extend .text-black;
+}
+
+.sidemenu-item-active {
+  @extend .text-accent;
+  font-weight: bolder;
+}

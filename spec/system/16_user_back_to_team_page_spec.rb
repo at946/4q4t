@@ -31,7 +31,7 @@ feature "16_user_back_to_team_page", type: :system, js: true do
   scenario "Member is not created and the user moves to team page, when the user clicks on return icon on new member page." do
     member_count = Member.count
 
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     click_on :return_icon
 
     expect(Member.count).to eq member_count

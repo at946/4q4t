@@ -1,0 +1,14 @@
+<% content_for :content do %>
+  <div id="grid_container">
+    <div id="sidemenu_container">
+      <ul class="ml-1">
+        <li class="h3 my-1 text-primary"><%= @team.name %></li>
+        <li class="my-1"><%= link_to "Team & Members", team_path(@team), id: :team_side_menu, class: controller.controller_name =~ /teams|members/ ? "sidemenu-item-active":"sidemenu-item" %></li>
+        <li class="my-1"><%= link_to "Drucker Exercise", druckers_path(@team), id: :druckers_side_menu, class: controller.controller_name =~ /druckers/ ? "sidemenu-item-active":"sidemenu-item" %></li>
+      </ul>
+    </div>
+    <div><%= yield %></div>
+  </div>
+<% end %>
+
+<%= render template: "layouts/application" %>

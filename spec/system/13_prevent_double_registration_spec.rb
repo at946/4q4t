@@ -20,10 +20,14 @@ feature "13_prevent_double_registration", type: :system, js: true do
 
   scenario "Only one member is created and user moves to team page when user double clicks on 'Answer' button on new member page." do
     member_count = Member.count
-    visit new_member_path(team: @team)
+    
+    visit new_member_path @team
     fill_in :member_name, with: @member_v2.name
+
     expect(find("#create_member_button")["data-disable-with"]).to eq "Creating..."
+
     find("#create_member_button").click
+
     expect(Member.count).to eq member_count + 1
     expect(current_path).to eq team_path @team
     expect(page).to have_text @member_v2.name

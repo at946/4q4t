@@ -1,0 +1,71 @@
+<div class="p-1 bg-white" style="border-bottom: solid 1px #CDCECF;">
+  <h3>Edit Drucker Answers</h3>
+</div>
+
+<div class="container mb-5 mt-2">
+  <div class="text-left mb-2">
+    <%= link_to druckers_path(@team), id: :return_icon do %>
+      <i class="material-icons">arrow_back</i>
+    <% end %>
+  </div>
+
+  <%= form_with model: @member, url: update_drucker_path(@member), local: true do |form| %>
+    <%# エラーメッセージを出力する %>
+    <% if @member.errors.any? %>
+      <div>
+        <ul>
+          <% @member.errors.full_messages.each do |message| %>
+            <li class="text-alert"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-2">
+      <div class="card card-primary">
+        <p>Q1. <%= t :q1 %></p>
+        <div class="mt-1">
+          <%= form.text_field :ans_q1, name: "member[ans_q1][]", value: @member.ans_q1.to_a[0], id: :member_ans_q1_1, class: 'input mb-1', autofocus: true %>
+          <%= form.text_field :ans_q1, name: "member[ans_q1][]", value: @member.ans_q1.to_a[1], id: :member_ans_q1_2, class: 'input mb-1' %>
+          <%= form.text_field :ans_q1, name: "member[ans_q1][]", value: @member.ans_q1.to_a[2], id: :member_ans_q1_3, class: 'input mb-1' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <div class="card card-primary">
+        <p>Q2. <%= t :q2 %></p>
+        <div class="mt-1">
+          <%= form.text_field :ans_q2, name: "member[ans_q2][]", value: @member.ans_q2.to_a[0], id: :member_ans_q2_1, class: 'input mb-1' %>
+          <%= form.text_field :ans_q2, name: "member[ans_q2][]", value: @member.ans_q2.to_a[1], id: :member_ans_q2_2, class: 'input mb-1' %>
+          <%= form.text_field :ans_q2, name: "member[ans_q2][]", value: @member.ans_q2.to_a[2], id: :member_ans_q2_3, class: 'input mb-1' %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mb-2">
+      <div class="card card-primary">
+        <p>Q3. <%= t :q3 %></p>
+        <div class="mt-1">
+          <%= form.text_field :ans_q3, name: "member[ans_q3][]", value: @member.ans_q3.to_a[0], id: :member_ans_q3_1, class: 'input mb-1' %>
+          <%= form.text_field :ans_q3, name: "member[ans_q3][]", value: @member.ans_q3.to_a[1], id: :member_ans_q3_2, class: 'input mb-1' %>
+          <%= form.text_field :ans_q3, name: "member[ans_q3][]", value: @member.ans_q3.to_a[2], id: :member_ans_q3_3, class: 'input mb-1' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <div class="card card-primary">
+        <p>Q4. <%= t :q4 %></p>
+        <div class="mt-1">
+          <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: @member.ans_q4.to_a[0], id: :member_ans_q4_1, class: 'input mb-1' %>
+          <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: @member.ans_q4.to_a[1], id: :member_ans_q4_2, class: 'input mb-1' %>
+          <%= form.text_field :ans_q4, name: "member[ans_q4][]", value: @member.ans_q4.to_a[2], id: :member_ans_q4_3, class: 'input mb-1' %>
+        </div>
+      </div>
+    </div>
+
+    <%= form.submit "Update", id: :update_drucker_button, class: "button bg-accent", data: { disable_with: "Updating..." } %>
+
+  <% end %>
+</div>

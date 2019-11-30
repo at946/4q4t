@@ -9,7 +9,7 @@ feature "14_manage_member_roles", type: :system, js: true do
   end
 
   scenario "Member can input own 'Role' on new member page." do
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     fill_in :member_role, with: @member3.role
     expect(find("#member_role").value).to eq @member3.role
   end
@@ -17,7 +17,7 @@ feature "14_manage_member_roles", type: :system, js: true do
   scenario "Member is created and moves to team page, when member clicks on 'Create' button after inputing role on new member page." do
     member_count = Member.count
 
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     fill_in :member_name, with: @member3.name
     fill_in :member_role, with: @member3.role
     click_on :create_member_button
@@ -30,7 +30,7 @@ feature "14_manage_member_roles", type: :system, js: true do
 
     Member.last.destroy
 
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     fill_in :member_name, with: @member3.name
     fill_in :member_role, with: @member3_space.role
     click_on :create_member_button
@@ -45,7 +45,7 @@ feature "14_manage_member_roles", type: :system, js: true do
   scenario "Member is created and moves to team page, when member clicks on 'Create' button without inputing role on new member page." do
     member_count = Member.count
 
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     fill_in :member_name, with: @member3.name
     fill_in :member_role, with: ""
     click_on :create_member_button
@@ -59,7 +59,7 @@ feature "14_manage_member_roles", type: :system, js: true do
 
     Member.last.destroy
 
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     fill_in :member_name, with: @member3.name
     fill_in :member_role, with: "　 "
     click_on :create_member_button

@@ -49,10 +49,10 @@ feature "05_team_leader_rename_team", type: :system, js: true do
     expect(page).not_to have_text @team_v2_space.name
   end
 
-  scenario "User is redirected to team not found error page when user tries to access to edit team page of non-existent team." do
-    visit edit_team_path "a"
-    expect(current_path).to eq edit_team_path "a"
-    expect(page).to have_text "Team is not found."
+  scenario "User is redirected to team not found error page when user tries to access to edit team page of non-existent team.", js: false do
+    expect do
+      visit edit_team_path "a"
+    end.to raise_exception{ActiveRecord::RecordNotFound}
   end
 
 end

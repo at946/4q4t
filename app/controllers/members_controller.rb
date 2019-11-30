@@ -1,14 +1,10 @@
 class MembersController < ApplicationController
   before_action :set_member,  only: [:edit, :update, :destroy]
-  before_action :set_team,    only: [:edit, :update, :destroy]
   before_action :set_noindex
 
-  layout 'teams'
-
-  # GET /members/new
   def new
     begin
-      @team = Team.find(params[:team])
+      @team = Team.find(params[:uid])
     rescue => exception
       flash[:error] = "Team is not found."
       render template: "common/error"
@@ -16,7 +12,6 @@ class MembersController < ApplicationController
     @member = Member.new(team_id: @team.id)
   end
 
-  # POST /members/new
   def create
     @member = Member.new(member_params)
     @team = @member.team
@@ -28,12 +23,10 @@ class MembersController < ApplicationController
     end
   end
 
-  # GET /members/:uid/edit
   def edit
   end
 
 
-  # PATCH /members/:uid/edit
   def update
     if @member.update(member_params)
       redirect_to team_path(@member.team)
@@ -42,7 +35,6 @@ class MembersController < ApplicationController
     end
   end
 
-  # DELETE /members/:uid
   def destroy
     @member.destroy
     redirect_to team_path(@member.team)
@@ -53,18 +45,15 @@ class MembersController < ApplicationController
     def set_member
       begin
         @member = Member.find(params[:uid])
+        @team = @member.team
       rescue => exception
         flash[:error] = "Member is not found."
         render template: 'common/error'
       end
     end
 
-    def set_team
-      @team = @member.team
-    end
-
     #  Strong parameters
     def member_params
-      params.require(:member).permit(:team_id, :name, :role, ans_q1: [], ans_q2: [], ans_q3: [], ans_q4: [])
+      params.require(:member).permit(:team_id, :name, :role)
     end
 end

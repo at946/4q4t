@@ -18,6 +18,10 @@ ol {
   @extend .ml-2;
 }
 
+a {
+  @extend .text-black;
+}
+
 .ol-questions {
   list-style: none;
   counter-reset: cnt;

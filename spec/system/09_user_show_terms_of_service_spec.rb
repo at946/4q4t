@@ -36,7 +36,7 @@ feature "09_user_show_terms_of_service", type: :system, js: true do
   end
 
   scenario "User moves to terms page when user clicks on terms link on footer on create member page." do
-    visit new_member_path(team: @team)
+    visit new_member_path @team
     click_on :terms_link
     expect(current_path).to eq tos_path
   end
@@ -57,6 +57,27 @@ feature "09_user_show_terms_of_service", type: :system, js: true do
     visit pp_path
     click_on :terms_link
     expect(current_path).to eq tos_path
+  end
+
+  scenario "A user moves to the terms page when the user clicks on the terms link on the footer on the druckers page." do
+    visit druckers_path @team
+    click_on :terms_link
+
+    expect(current_path).to eq tos_path
+  end
+
+  scenario "A user moves to the terms page when the user clicks on the terms link on the footer on the edit drucker page." do
+    visit edit_drucker_path @member
+    click_on :terms_link
+
+    expect(page).to have_current_path tos_path
+  end
+
+  scenario "A user moves to the terms page when the user clicks on the terms link on the footer on the drucker exercise page." do
+    visit drucker_exercise_path @team
+    click_on :terms_link
+
+    expect(page).to have_current_path tos_path
   end
 
 end

@@ -1,5 +1,5 @@
 <div class="p-1" style="border-bottom: solid 1px #CDCECF;">
-  <h3>Team & Member</h3>
+  <h3>Team & Members</h3>
 </div>
 
 <div class="container my-2">
@@ -28,7 +28,7 @@
   <% end %>
   </div>
 
-  <%= link_to new_member_path(team: @team), id: 'new_member_button', class: 'button mb-1 bg-accent' do %>
+  <%= link_to new_member_path(@team), id: 'add_member_button', class: 'button mb-1 bg-accent' do %>
     <span class="text-middle"><i class="material-icons">add</i>Member</span>
   <% end %>
 </div>

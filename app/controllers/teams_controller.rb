@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: [:show, :edit, :update, :destroy, :exercise]
+  before_action :set_team, except: [:new, :create]
   before_action :set_noindex
 
   # GET /teams/:uid
@@ -19,9 +19,9 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
-      redirect_to team_path @team.uid
+      redirect_to team_path(@team)
     else
-      render :new
+      render :new, layout: "application"
     end
   end
 
@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
   # PATCH /teams/:uid/edit
   def update
     if @team.update(team_params)
-      redirect_to @team
+      redirect_to team_path(@team)
     else
       render :edit
     end
@@ -44,19 +44,10 @@ class TeamsController < ApplicationController
     redirect_to root_path
   end
 
-  def exercise
-    @members = @team.members.shuffle
-  end
-
   private
     # params[:uid]からTeamを検索し@teamに格納する。TeamがNot foundの場合はエラーページへ遷移させる。
     def set_team
-      begin
-        @team = Team.find(params[:uid])
-      rescue => error
-        flash[:error] = "Team is not found."
-        render template: 'common/error'
-      end
+      @team = Team.find(params[:uid])
     end
 
     # Strong parameters

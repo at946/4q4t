@@ -14,10 +14,10 @@ feature "02_team_leader_invite_team_members", type: :system, js: true do
      expect(page).to have_text current_path
   end
 
-  scenario "User is redirected team not found page when user tries to access show team page of not existing team directly." do
-    visit team_path "1"
-    expect(current_path).to eq team_path "1"
-    expect(page).to have_text "Team is not found."
+  scenario "User is redirected team not found page when user tries to access show team page of not existing team directly.", js: false do
+    expect do
+      visit team_path "1"      
+    end.to raise_exception{ActiveRecord::RecordNotFound}
   end
 
 end

@@ -5,15 +5,17 @@ feature "04_team_member_leaves_team", type: :system, js: true do
     @member = create(:member, team: @team)
   end
 
-  scenario "User can move edit member page when user clicks on edit icon on member card on show team page." do
+  scenario "When a user clicks on member cards on the team page, the user moves to the edit member page." do
     visit team_path @team
-    all(".member-card").first.find(".edit-icon").click
-    expect(current_path).to eq edit_member_path @member
+    all(".member-card").first.click
+
+    expect(page).to have_current_path edit_member_path @member
   end
 
-  scenario "User moves error page for member not found when user tries to access edit member page with no exist member" do
-    visit edit_member_path "a"
-    expect(page).to have_text "Member is not found."
+  scenario "User moves error page for member not found when user tries to access edit member page with no exist member", js: false do
+    expect do
+      visit edit_member_path "1"
+    end.to raise_exception{ActiveRecord::RecordNotFound}
   end
 
   scenario "User can open delete member confirmation dialog when user clicks on 'delete' button on edit member page." do

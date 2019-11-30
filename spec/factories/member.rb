@@ -40,4 +40,10 @@ FactoryBot.define do
     ans_q4  { [" 回答-Q4-A1 ", "　回答-Q4-A2　", " 回答-Q4-A3　"] }
   end
 
+  factory :new_member, class: Member do
+    team
+    name    { "John Smith" }
+    role    { "Product Owner" } 
+  end
+
 end

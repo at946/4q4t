@@ -62,7 +62,7 @@
       </div>
     </header>
 
-    <%= yield %>
+    <%= content_for?(:content) ? yield(:content) : yield %>
 
     <footer class="footer">
       <ul>

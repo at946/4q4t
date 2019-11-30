@@ -6,21 +6,23 @@
 </div>
 
 <div class="container mb-5">
-  <%= link_to exercise_path(@team), id: :start_exercise_button, class: "button bg-primary mt-2" do %>
+  <%= link_to drucker_exercise_path(@team), id: :start_exercise_button, class: "button bg-primary mt-2" do %>
     <span class="text-middle"><i class="material-icons">play_arrow</i>Start Exercise</span>
   <% end %>
 
   <% @members.each do |member| %>
-    <div class="card card-hover h-100 member-card my-2 bg-white">
-      <h3><%= member.name %></h3>
-      <p><%= member.role %></p>
-      <div class="f-container">
-        <%= render 'member_card', question: "Q1. #{t :q1}", answers: member.ans_q1 %>
-        <%= render 'member_card', question: "Q2. #{t :q2}", answers: member.ans_q2 %>
-        <%= render 'member_card', question: "Q3. #{t :q3}", answers: member.ans_q3 %>
-        <%= render 'member_card', question: "Q4. #{t :q4}", answers: member.ans_q4 %>    
+    <%= link_to edit_drucker_path(member) do %>
+      <div class="card card-hover h-100 member-card my-2 bg-white">
+        <h3><%= member.name %></h3>
+        <p><%= member.role %></p>
+        <div class="f-container">
+          <%= render 'member_card', question: "Q1. #{t :q1}", answers: member.ans_q1 %>
+          <%= render 'member_card', question: "Q2. #{t :q2}", answers: member.ans_q2 %>
+          <%= render 'member_card', question: "Q3. #{t :q3}", answers: member.ans_q3 %>
+          <%= render 'member_card', question: "Q4. #{t :q4}", answers: member.ans_q4 %>    
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
