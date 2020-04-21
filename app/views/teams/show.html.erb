@@ -9,12 +9,12 @@
       <i class="material-icons text-accent">edit</i>
     <% end %>
   </h2>
-  <p style="overflow: scroll;" class="text-secondary"><%= request.url %></p>
+  <p style="overflow: scroll;"><%= request.url %></p>
   <p class="mb-2" style="color: #AAA;">URLを共有してメンバーを招待しましょう！</p>
 
   <div class="f-container mb-2">
     <% @members.each do |member| %>
-      <div class="f-item-4 p-1">
+      <div class="f-item-4 f-item-mobile-12 p-1">
         <%= link_to edit_member_path member do %>
           <div class="card card-hover h-100 member-card">
             <%= image_tag 'how_to_use_1.png', class: "w-50 mb-1", style: "border-radius: 50%;" %>

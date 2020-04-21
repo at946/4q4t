@@ -2,9 +2,11 @@
 @import 'color';
 
 #grid_container {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  min-height: calc(100vh - 4rem);
+  @media #{$tablet}, #{$pc} {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: calc(100vh - 4rem);  
+  }
 }
 
 #sidemenu_container {
